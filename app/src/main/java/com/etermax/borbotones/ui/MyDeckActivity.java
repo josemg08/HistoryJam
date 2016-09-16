@@ -17,15 +17,12 @@ import java.util.List;
 
 public class MyDeckActivity extends AppCompatActivity {
 
-    GridView mGridView;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_deck);
 
-        mGridView = (GridView) findViewById(R.id.my_deck_gridview);
+        GridView mGridView = (GridView) findViewById(R.id.my_deck_gridview);
         mGridView.setAdapter( new MyDeckAdapter(this) );
     }
 
@@ -37,11 +34,23 @@ public class MyDeckActivity extends AppCompatActivity {
         {
             mContext = context;
             mCardList = new ArrayList<>();
+            mCardList.add(new Card());
+            mCardList.add(new Card());
+            mCardList.add(new Card());
+            mCardList.add(new Card());
+            mCardList.add(new Card());
+            mCardList.add(new Card());
+            mCardList.add(new Card());
+            mCardList.add(new Card());
+            mCardList.add(new Card());
+            mCardList.add(new Card());
+            mCardList.add(new Card());
+            mCardList.add(new Card());
         }
 
         @Override
         public int getCount() {
-            return 100;
+            return mCardList.size();
         }
 
         @Override
@@ -58,13 +67,13 @@ public class MyDeckActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             CardView view;
             if (convertView == null) {
-                view = new CardView(mContext, new Card() );
+                view = new CardView( mContext );
             } else {
                 view = (CardView)convertView;
             }
+
+            view.setCard( mCardList.get(position) );
             return view;
         }
-
-
     }
 }

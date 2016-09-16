@@ -10,11 +10,15 @@ public class CardView extends View implements View.OnClickListener{
 
     Card mCard;
 
-    public CardView(Context context, Card card) {
+    public CardView(Context context) {
         super(context);
+        setOnClickListener(this);
+    }
+
+    public void setCard( Card card )
+    {
         mCard = card;
         setBackgroundColor( mCard.mType.getColor() );
-        setOnClickListener(this);
     }
 
     @Override
