@@ -11,18 +11,18 @@
         android:supportsRtl="true"
         android:name=".BorbotonesApplication"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.SplashActivity">
+        <activity android:name=".ui.SplashActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.ModeSelectionActivity" />
-        <activity android:name=".ui.HistoricEventSelectionActivity" />
-        <activity android:name=".ui.MyDeckActivity"></activity>
-        <activity android:name=".ui.HistoryInformationActivity"/>
-        <activity android:name=".ui.CardInformationActivity"/>
+        <activity android:name=".ui.ModeSelectionActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.HistoricEventSelectionActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.MyDeckActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.HistoryInformationActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.CardInformationActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
