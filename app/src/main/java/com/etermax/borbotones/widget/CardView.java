@@ -1,12 +1,14 @@
 package com.etermax.borbotones.widget;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.etermax.borbotones.model.Card;
+import com.etermax.borbotones.ui.CardInformationActivity;
 
 public class CardView extends ImageView implements View.OnClickListener{
 
@@ -33,6 +35,9 @@ public class CardView extends ImageView implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(getContext(), "CLICK", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getContext(), CardInformationActivity.class);
+        intent.putExtra(CardInformationActivity.CARD_KEY, mCard);
+        getContext().startActivity(intent);
     }
+
 }

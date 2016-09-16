@@ -22,6 +22,7 @@
         <activity android:name=".ui.HistoricEventSelectionActivity" />
         <activity android:name=".ui.MyDeckActivity"></activity>
         <activity android:name=".ui.HistoryInformationActivity"/>
+        <activity android:name=".ui.CardInformationActivity"/>
     </application>
 
 </manifest>
