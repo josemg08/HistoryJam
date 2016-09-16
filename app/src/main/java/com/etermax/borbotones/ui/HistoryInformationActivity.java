@@ -1,5 +1,6 @@
 package com.etermax.borbotones.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +13,7 @@ import com.etermax.borbotones.R;
 import com.etermax.borbotones.model.Card;
 import com.etermax.borbotones.model.HistoryEvent;
 
-public class HistoryInformationActivity extends AppCompatActivity {
+public class HistoryInformationActivity extends Activity {
 
     public static final String HISTORY_EVENT_KEY = "history_event_key";
 

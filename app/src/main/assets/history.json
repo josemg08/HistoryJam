@@ -1,6 +1,5 @@
-{
-  "annals_of_history":[
-    {
+[
+   {
       "id":"1",
       "title":"Revolucion Rusa",
       "description":"Abajo el capitalismo",
@@ -18,5 +17,4 @@
       "description":"Se comio el cuchi",
       "resource":"rome"
     }
-  ]
-}
+]
