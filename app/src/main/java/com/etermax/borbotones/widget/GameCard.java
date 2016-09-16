@@ -9,6 +9,7 @@ import android.transition.TransitionManager;
 import android.transition.TransitionSet;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -22,6 +23,8 @@ import com.etermax.borbotones.model.Card;
 
 public class GameCard extends RelativeLayout {
 
+
+    private static final float RATIO = 16/9;
     private boolean isFlipped = true;
     private RelativeLayout rlContainer;
     private ImageView ivCardBackgrond;
@@ -59,17 +62,45 @@ public class GameCard extends RelativeLayout {
         super(context, attrs, defStyleAttr, defStyleRes);
         setupView();
     }
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
+        int width = getMeasuredWidth();
+        int height = getMeasuredHeight();
+        int widthWithoutPadding = width - getPaddingLeft() - getPaddingRight();
+        int heigthWithoutPadding = height - getPaddingTop() - getPaddingBottom();
+
+        int maxWidth = (int) (heigthWithoutPadding * RATIO);
+        int maxHeight = (int) (widthWithoutPadding / RATIO);
+
+        width = getContext().getResources().getDimensionPixelSize(R.dimen.card_width);
+        height = getContext().getResources().getDimensionPixelSize(R.dimen.card_height);
+//        if (widthWithoutPadding  < maxWidth) {
+//
+//            width = maxWidth + getPaddingLeft() + getPaddingRight();
+//        } else {
+//            height = maxHeight + getPaddingTop() + getPaddingBottom();
+//        }
+
+        setMeasuredDimension(width, height);
+    }
     private void setupView() {
 
-        rootView = inflate(getContext(), R.layout.gamecard_layout, null);
-        addView(rootView);
+        inflate(getContext(), R.layout.gamecard_layout, this);
 
-        rlContainer = (RelativeLayout) rootView.findViewById(R.id.rlContainer);
-        ivCardBackgrond = (ImageView) rootView.findViewById(R.id.ivCardBackground);
-        ivFlippedBackground = (ImageView) rootView.findViewById(R.id.ivFlippedBackground);
-        tvAttack = (TextView) rootView.findViewById(R.id.tvAttackPoints);
-        tvLife = (TextView) rootView.findViewById(R.id.tvLifePoints);
+        float width = getContext().getResources().getDimensionPixelSize(R.dimen.card_width);
+        float height = getContext().getResources().getDimensionPixelSize(R.dimen.card_width);
+
+//        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams((int) width,(int)height);
+//        rootView.setLayoutParams(layoutParams);
+//        addView(rootView);
+
+        rlContainer = (RelativeLayout) findViewById(R.id.rlContainer);
+        ivCardBackgrond = (ImageView) findViewById(R.id.ivCardBackground);
+        ivFlippedBackground = (ImageView) findViewById(R.id.ivFlippedBackground);
+        tvAttack = (TextView) findViewById(R.id.tvAttackPoints);
+        tvLife = (TextView) findViewById(R.id.tvLifePoints);
 
 
         isFlipped = true;
@@ -82,8 +113,7 @@ public class GameCard extends RelativeLayout {
         life = card.defense;
         attack = card.attack;
 
-        updateLifeUI();
-        updateAttackUI();
+        updateUI();
     }
 
     public void flip() {
@@ -93,9 +123,15 @@ public class GameCard extends RelativeLayout {
                 .addTransition(new Fade())
                 .setInterpolator(new FastOutLinearInInterpolator());
 
-        TransitionManager.beginDelayedTransition((RelativeLayout) rootView, set);
+//        TransitionManager.beginDelayedTransition((RelativeLayout) rootView, set);
         rlContainer.setVisibility(isFlipped ? INVISIBLE : VISIBLE);
         ivFlippedBackground.setVisibility(isFlipped ? VISIBLE : INVISIBLE);
+    }
+
+    private void updateUI() {
+        flip();
+        updateLifeUI();
+        updateAttackUI();
     }
 
     private void updateAttackUI() {

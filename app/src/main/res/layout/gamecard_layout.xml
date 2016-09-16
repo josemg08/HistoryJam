@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:background="#ff0000">
 
     <ImageView
         android:id="@+id/ivFlippedBackground"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="@drawable/card0"/>
     <RelativeLayout
         android:id="@+id/rlContainer"
         android:layout_width="match_parent"
@@ -14,14 +16,16 @@
             android:id="@+id/ivCardBackground"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorAccent"/>
+            android:background="@drawable/card2"/>
         <ImageView
             android:id="@+id/ivCardBa"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorAccent"/>
 
         <com.etermax.borbotones.widget.CustomFontTextView
+            android:visibility="gone"
             android:id="@+id/tvAttackPoints"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,6 +35,7 @@
             android:textSize="20dp"/>
         <com.etermax.borbotones.widget.CustomFontTextView
             android:id="@+id/tvLifePoints"
+            android:visibility="gone"
             android:text="L:20/20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

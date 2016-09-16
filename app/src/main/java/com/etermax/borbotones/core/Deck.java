@@ -10,5 +10,5 @@ import java.util.ArrayList;
  */
 
 public class Deck {
-    public ArrayList<com.etermax.borbotones.model.Card> cards;
+    public ArrayList<com.etermax.borbotones.model.Card> cards = new ArrayList<>();
 }

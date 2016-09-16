@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -35,6 +36,9 @@ public class ArenaDeck extends RelativeLayout {
     private LinearLayout llCurrentCards;
     private DeckActions deckActions;
     private PlayerStatusWidget playerStatusWidget;
+    private DeckView deckView;
+    private Player player;
+    private Deck deck;
 
     private ArrayList<GameCard> arenaCards = new ArrayList<>();
     private ArrayList<GameCard> currentCards = new ArrayList<>();
@@ -61,21 +65,27 @@ public class ArenaDeck extends RelativeLayout {
     }
 
     public void buildArena(Player player, Deck deck) {
-
-        //TODO: deck.setCards = deck.cards;
-
+        this.player = player;
+        this.deck = deck;
+        setupCards();
     }
 
     private void setupView() {
 
         rootView = inflate(getContext(), R.layout.deck_arena_layout, null);
+        rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         addView(rootView);
+
+        deckView = (DeckView) rootView.findViewById(R.id.dvDeck);
+        llCurrentCards = (LinearLayout) rootView.findViewById(R.id.llCurrentCards);
+        llArenaCards = (LinearLayout) rootView.findViewById(R.id.llArenaCards);
+
     }
 
     private void setupCards() {
-
-        //TODO: addCardsToCurrentCards(deck.getcards(5))
-        addCardsToCurrentCards(null);
+        deckView.setCards(deck.cards);
+        Card[] cards = new Card[5];
+        addCardsToCurrentCards(deckView.consumeCards(5).toArray(cards));
     }
 
     private void addCardsToCurrentCards(Card... cards) {
@@ -93,6 +103,7 @@ public class ArenaDeck extends RelativeLayout {
             });
 
             llCurrentCards.addView(gameCard);
+            llCurrentCards.requestLayout();
         }
     }
 

@@ -10,8 +10,14 @@
     android:orientation="vertical"
     android:weightSum="1.0">
     <com.etermax.borbotones.widget.ArenaDeck
+        android:id="@+id/adOponentDeck"
         android:layout_weight=".5"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"/>
+    <com.etermax.borbotones.widget.ArenaDeck
+        android:id="@+id/adMineDeck"
+        android:layout_weight=".5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
 
 </LinearLayout>
