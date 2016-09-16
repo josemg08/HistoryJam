@@ -1,0 +1,22 @@
+{
+  "annals_of_history":[
+    {
+      "id":"1",
+      "title":"Revolucion Rusa",
+      "description":"Abajo el capitalismo",
+      "resource":"revolution"
+    },
+    {
+      "id":"2",
+      "title":"Nacimiento de Jose",
+      "description":"El dia mas importante de la historia",
+      "resource":"alelluya"
+    },
+    {
+      "id":"3",
+      "title":"Asesinato de Julio cesar",
+      "description":"Se comio el cuchi",
+      "resource":"rome"
+    }
+  ]
+}

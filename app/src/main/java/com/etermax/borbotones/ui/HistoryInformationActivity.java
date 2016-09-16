@@ -43,8 +43,11 @@ public class HistoryInformationActivity extends AppCompatActivity {
 
     private void setHistoryEventInfo(HistoryEvent historyEvent){
         mHistoryEventDescription.setText(historyEvent.description);
-        mHistoryEventTitle.setText(historyEvent.name);
-        mHistoryEventImage.setImageDrawable(getResources().getDrawable(historyEvent.drawableId));
+        mHistoryEventTitle.setText(historyEvent.title);
+        try {
+            mHistoryEventImage.setImageDrawable(getResources().getDrawable(historyEvent.resource));
+        }
+        catch (Exception e){}
     }
 
 }

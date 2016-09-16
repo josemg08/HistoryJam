@@ -11,8 +11,8 @@ import java.io.Serializable;
 public class HistoryEvent implements Serializable {
 
     public String description;
-    public String name;
-    public int drawableId;
+    public String title;
+    public int resource;
 
 }
 //.___ End of HistoryEvent __./
