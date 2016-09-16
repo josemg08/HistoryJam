@@ -1,6 +1,9 @@
 package com.etermax.borbotones.model;
 
+import android.content.res.Resources;
 import android.graphics.Color;
+
+import com.etermax.borbotones.BorbotonesApplication;
 
 import java.io.Serializable;
 import java.util.Random;
@@ -38,7 +41,12 @@ public class Card implements Serializable {
     {
         random = new Random();
         int index = random.nextInt(CardType.values().length);
+        int drawable = random.nextInt(7);
+
         mType = CardType.values()[index];
+
+        Resources resources = BorbotonesApplication.getContext().getResources();
+        mDrawableId = resources.getIdentifier("card" + drawable, "drawable", BorbotonesApplication.getContext().getPackageName());
     }
 
     public CardType mType;
