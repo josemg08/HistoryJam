@@ -13,7 +13,7 @@ import android.widget.ListView;
  * __.
  */
 
-public class historicEventSelection extends AppCompatActivity {
+public class HistoricEventSelectionActivity extends AppCompatActivity {
 
     ListView historicEventsListView;
 
@@ -43,14 +43,12 @@ public class historicEventSelection extends AppCompatActivity {
 
         // ListView Item Click Listener
         historicEventsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             }
-
         });
     }
 
 }
-//.___ End of historicEventSelection __./
+//.___ End of HistoricEventSelectionActivity __./
