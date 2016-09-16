@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.etermax.borbotones.R;
+import com.etermax.borbotones.model.HistoryEvent;
 
 /**
  * .___
@@ -48,7 +49,10 @@ public class HistoricEventSelectionActivity extends AppCompatActivity {
         historicEventsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //startActivity(new Intent(this, Car.class));
+                HistoryEvent historyEvent = new HistoryEvent();
+                Intent intent = new Intent(getApplicationContext(), HistoryInformationActivity.class);
+                intent.putExtra(HistoryInformationActivity.HISTORY_EVENT_KEY, historyEvent);
+                startActivity(intent);
             }
         });
     }

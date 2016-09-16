@@ -3,17 +3,14 @@ package com.etermax.borbotones.model;
 import android.graphics.Color;
 
 import java.io.Serializable;
-import java.util.Random;
 
 public class Card implements Serializable {
-
-    Random random;
 
     public enum CardType {
         SCIENCIST(Color.RED, "scientist"),
         POLITICIAN(Color.YELLOW, "politician"),
-        MILITAR(Color.GREEN, "militar"),
-        ATHLETE(Color.BLUE, "athlet"),
+        MILITARY(Color.GREEN, "military"),
+        ATHLETE(Color.BLUE, "athlete"),
         ARTIST(Color.GRAY, "artist");
 
         private int mColor;
@@ -34,17 +31,13 @@ public class Card implements Serializable {
 
     }
 
-    public Card()
-    {
-        random = new Random();
-        int index = random.nextInt(CardType.values().length);
-        mType = CardType.values()[index];
-    }
-
-    public CardType mType;
-    public String   mName;
-    public String   mDescription;
-    public int      mAttack;
-    public int      mDefense;
-    public int      mDrawableId;
+    public CardType type;
+    public String name;
+    public String description;
+    public int id;
+    public int attack;
+    public int defense;
+    public String resource;
+    public int resourceId;
 }
+

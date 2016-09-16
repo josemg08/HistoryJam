@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="white">#ffffff</color>
-    <color name="colorPrimaryLight">#5c6bbe</color>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
 
+    <color name="colorPrimaryLight">@color/aqua</color>
+    <color name="colorPrimary">@color/blue</color>
+    <color name="colorPrimaryDark">@color/blueDark</color>
+    <color name="colorAccent">@color/yellow</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+
+    <!--.___ Card colors __.-->
+    <color name="blue">#78BDCC</color>
+    <color name="blueDark">#63A1AD</color>
+    <color name="aqua">#97DAD3</color>
+    <color name="aquaDark">#6FBDB5</color>
+    <color name="yellow">#FBFE8D</color>
+    <color name="yellow_dark">#DBC37D</color>
+    <color name="brownLight">#FAF0F0</color>
+    <color name="brownVeryLight">#E6E6E6</color>
+    <color name="orange">#FFB67B</color>
+    <color name="orangeDark">#E09D68</color>
+    <color name="earth">#FAB4B4</color>
+    <color name="earthDark">#E09f9f</color>
+    <color name="purple">#C9C6E4</color>
+    <color name="purpleDark">#ADABCC</color>
+
+    <!--.___ Card text colors __.-->
+    <color name="red">#C93E44</color>
+    <color name="green">#1C9660</color>
 
 </resources>
