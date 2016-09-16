@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity implements Runnable {
 
-    private static final int SPLASH_DURATION = 5000;
+    private static final int SPLASH_DURATION = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
