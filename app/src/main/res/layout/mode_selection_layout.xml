@@ -10,20 +10,20 @@
         android:layout_centerInParent="true">
 
         <Button
+            android:id="@+id/history_button"
+            style="@style/mode_selection_button_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/primary_button_background"
             android:layout_marginBottom="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:text="@string/history"/>
 
         <Button
+            android:id="@+id/vs_button"
+            style="@style/mode_selection_button_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/primary_button_background"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:text="@string/vs"/>
 
     </LinearLayout>
