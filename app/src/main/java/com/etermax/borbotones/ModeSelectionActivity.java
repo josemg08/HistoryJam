@@ -18,3 +18,4 @@ public class ModeSelectionActivity extends AppCompatActivity {
     }
 
 }
+//.___ End of ModeSelectionActivity __./
