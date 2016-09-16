@@ -1,6 +1,5 @@
 package com.etermax.borbotones.ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +18,7 @@ import com.etermax.borbotones.model.Card;
 public class CardInformationActivity extends AppCompatActivity {
 
     //.___ Intent argument __./
-    protected static final String CARD_KEY = "card_key";
+    public static final String CARD_KEY = "card_key";
 
     private ImageView mImageView;
     private TextView mCardTitle;
@@ -56,3 +55,4 @@ public class CardInformationActivity extends AppCompatActivity {
     }
 
 }
+//.___ End of CardInformationActivity __./
