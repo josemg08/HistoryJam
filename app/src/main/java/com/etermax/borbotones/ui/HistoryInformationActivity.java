@@ -13,6 +13,8 @@ import com.etermax.borbotones.R;
 import com.etermax.borbotones.model.Card;
 import com.etermax.borbotones.model.HistoryEvent;
 
+import static com.etermax.borbotones.BorbotonesApplication.getContext;
+
 public class HistoryInformationActivity extends Activity {
 
     public static final String HISTORY_EVENT_KEY = "history_event_key";
@@ -45,7 +47,8 @@ public class HistoryInformationActivity extends Activity {
     private void setHistoryEventInfo(HistoryEvent historyEvent){
         mHistoryEventDescription.setText(historyEvent.description);
         mHistoryEventTitle.setText(historyEvent.title);
-        mHistoryEventImage.setImageDrawable(getResources().getDrawable(historyEvent.getResourceId()));
+        mHistoryEventImage.setImageDrawable(getContext().getResources().getDrawable(
+                historyEvent.getResourceId()));
     }
 
 }

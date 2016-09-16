@@ -26,7 +26,7 @@ public class AnnalsOfHistory {
 
     public static AnnalsOfHistory getInstance() {
         if (instance == null) {
-            new AnnalsOfHistory();
+            instance = new AnnalsOfHistory();
         }
 
         return instance;
