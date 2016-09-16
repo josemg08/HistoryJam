@@ -1,10 +1,16 @@
 package com.etermax.borbotones.model;
 
+import android.content.res.Resources;
 import android.graphics.Color;
 
+import com.etermax.borbotones.BorbotonesApplication;
+
 import java.io.Serializable;
+import java.util.Random;
 
 public class Card implements Serializable {
+
+    Random random;
 
     public enum CardType {
         SCIENCIST(Color.RED, "scientist"),
@@ -38,6 +44,11 @@ public class Card implements Serializable {
     public int attack;
     public int defense;
     public String resource;
-    public int resourceId;
+
+    public int getResourceId()
+    {
+        Resources resources = BorbotonesApplication.getContext().getResources();
+        return resources.getIdentifier(resource, "drawable", BorbotonesApplication.getContext().getPackageName());
+    }
 }
 

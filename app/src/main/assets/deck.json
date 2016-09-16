@@ -15,7 +15,7 @@
     "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
     "attack":85,
     "defense":30,
-    "resource":"card1"
+    "resource":"card2"
   },
   {
     "id":"3",
@@ -24,7 +24,7 @@
     "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
     "attack":85,
     "defense":30,
-    "resource":"card1"
+    "resource":"card3"
   },
   {
     "id":"4",
@@ -33,7 +33,7 @@
     "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
     "attack":85,
     "defense":30,
-    "resource":"card1"
+    "resource":"card4"
   },
   {
     "id":"5",
@@ -42,7 +42,7 @@
     "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
     "attack":85,
     "defense":30,
-    "resource":"card1"
+    "resource":"card5"
   },
   {
     "id":"6",
@@ -51,6 +51,6 @@
     "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
     "attack":85,
     "defense":30,
-    "resource":"card1"
+    "resource":"card6"
   }
 ]

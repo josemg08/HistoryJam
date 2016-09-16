@@ -46,7 +46,7 @@ public class CardInformationActivity extends Activity {
     }
 
     private void setCardAttributes(Card card){
-        mImageView.setImageDrawable(getResources().getDrawable(card.resourceId));
+        mImageView.setImageDrawable(getResources().getDrawable(card.getResourceId()));
         mCardTitle.setText(card.name);
         mCardType.setText(card.type.getCardTypeName());
         mCardAttack.setText(card.attack);

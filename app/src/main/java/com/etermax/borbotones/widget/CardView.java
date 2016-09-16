@@ -23,7 +23,7 @@ public class CardView extends ImageView implements View.OnClickListener{
         mCard = card;
         setBackgroundColor( mCard.type.getColor() );
 
-        Glide.with(getContext()).load(mCard.resource).into(this);
+        Glide.with(getContext()).load(mCard.getResourceId()).into(this);
 
     }
 

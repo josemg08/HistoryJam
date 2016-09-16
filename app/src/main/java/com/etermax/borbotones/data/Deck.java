@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Deck {
 
@@ -19,7 +20,7 @@ public class Deck {
 
     public static Deck getInstance() {
         if (instance == null) {
-            new Deck();
+            instance = new Deck();
         }
 
         return instance;
@@ -50,9 +51,8 @@ public class Deck {
     }
 
 
-//    public Card getRandom()
-//    {
-//        Random random = new Random();
-//
-//    }
+    public Card getRandomCard()
+    {
+        return deckList.get(new Random().nextInt(deckList.size()));
+    }
 }

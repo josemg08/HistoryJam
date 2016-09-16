@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 
 import com.etermax.borbotones.R;
+import com.etermax.borbotones.data.Deck;
 import com.etermax.borbotones.model.Card;
 import com.etermax.borbotones.widget.CardView;
 
@@ -34,18 +35,18 @@ public class MyDeckActivity extends Activity {
         {
             mContext = context;
             mCardList = new ArrayList<>();
-            mCardList.add(new Card());
-            mCardList.add(new Card());
-            mCardList.add(new Card());
-            mCardList.add(new Card());
-            mCardList.add(new Card());
-            mCardList.add(new Card());
-            mCardList.add(new Card());
-            mCardList.add(new Card());
-            mCardList.add(new Card());
-            mCardList.add(new Card());
-            mCardList.add(new Card());
-            mCardList.add(new Card());
+            mCardList.add(Deck.getInstance().getRandomCard());
+            mCardList.add(Deck.getInstance().getRandomCard());
+            mCardList.add(Deck.getInstance().getRandomCard());
+            mCardList.add(Deck.getInstance().getRandomCard());
+            mCardList.add(Deck.getInstance().getRandomCard());
+            mCardList.add(Deck.getInstance().getRandomCard());
+            mCardList.add(Deck.getInstance().getRandomCard());
+            mCardList.add(Deck.getInstance().getRandomCard());
+            mCardList.add(Deck.getInstance().getRandomCard());
+            mCardList.add(Deck.getInstance().getRandomCard());
+            mCardList.add(Deck.getInstance().getRandomCard());
+            mCardList.add(Deck.getInstance().getRandomCard());
         }
 
         @Override
