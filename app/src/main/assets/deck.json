@@ -1,58 +1,56 @@
-{
-  "deck":[
-    {
-      "id":"1",
-      "type":"MILITARY",
-      "name":"Vasili Zaitsev",
-      "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
-      "attack":85,
-      "defense":30,
-      "resource":"card1"
-    },
-    {
-      "id":"2",
-      "type":"MILITARY",
-      "name":"Vasili Zaitsev",
-      "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
-      "attack":85,
-      "defense":30,
-      "resource":"card1"
-    },
-    {
-      "id":"3",
-      "type":"MILITARY",
-      "name":"Vasili Zaitsev",
-      "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
-      "attack":85,
-      "defense":30,
-      "resource":"card1"
-    },
-    {
-      "id":"4",
-      "type":"MILITARY",
-      "name":"Vasili Zaitsev",
-      "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
-      "attack":85,
-      "defense":30,
-      "resource":"card1"
-    },
-    {
-      "id":"5",
-      "type":"MILITARY",
-      "name":"Vasili Zaitsev",
-      "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
-      "attack":85,
-      "defense":30,
-      "resource":"card1"
-    },
-    {
-      "id":"6",
-      "type":"MILITARY",
-      "name":"Vasili Zaitsev",
-      "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
-      "attack":85,
-      "defense":30,
-      "resource":"card1"
-    }
-  ]
-}
+[
+  {
+    "id":"1",
+    "type":"MILITARY",
+    "name":"Vasili Zaitsev",
+    "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
+    "attack":85,
+    "defense":30,
+    "resource":"card1"
+  },
+  {
+    "id":"2",
+    "type":"MILITARY",
+    "name":"Vasili Zaitsev",
+    "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
+    "attack":85,
+    "defense":30,
+    "resource":"card1"
+  },
+  {
+    "id":"3",
+    "type":"MILITARY",
+    "name":"Vasili Zaitsev",
+    "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
+    "attack":85,
+    "defense":30,
+    "resource":"card1"
+  },
+  {
+    "id":"4",
+    "type":"MILITARY",
+    "name":"Vasili Zaitsev",
+    "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
+    "attack":85,
+    "defense":30,
+    "resource":"card1"
+  },
+  {
+    "id":"5",
+    "type":"MILITARY",
+    "name":"Vasili Zaitsev",
+    "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
+    "attack":85,
+    "defense":30,
+    "resource":"card1"
+  },
+  {
+    "id":"6",
+    "type":"MILITARY",
+    "name":"Vasili Zaitsev",
+    "description":"Fue un militar de la Unión Soviética y francotirador soviético famoso por ser el autor de 225 muertes de soldados y oficiales de la Wehrmacht y otras fuerzas del Eje durante la batalla de Stalingrado, entre ellos once francotiradores alemanes",
+    "attack":85,
+    "defense":30,
+    "resource":"card1"
+  }
+]

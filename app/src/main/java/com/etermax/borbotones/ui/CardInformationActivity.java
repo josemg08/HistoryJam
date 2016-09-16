@@ -1,8 +1,8 @@
 package com.etermax.borbotones.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +15,7 @@ import com.etermax.borbotones.model.Card;
  * __.
  */
 
-public class CardInformationActivity extends AppCompatActivity {
+public class CardInformationActivity extends Activity {
 
     //.___ Intent argument __./
     public static final String CARD_KEY = "card_key";
@@ -46,12 +46,12 @@ public class CardInformationActivity extends AppCompatActivity {
     }
 
     private void setCardAttributes(Card card){
-        mImageView.setImageDrawable(getResources().getDrawable(card.mDrawableId));
-        mCardTitle.setText(card.mName);
-        mCardType.setText(card.mType.getCardTypeName());
-        mCardAttack.setText(card.mAttack);
-        mCardDefence.setText(card.mDefense);
-        mCardDescription.setText(card.mDescription);
+        mImageView.setImageDrawable(getResources().getDrawable(card.resourceId));
+        mCardTitle.setText(card.name);
+        mCardType.setText(card.type.getCardTypeName());
+        mCardAttack.setText(card.attack);
+        mCardDefence.setText(card.defense);
+        mCardDescription.setText(card.description);
     }
 
 }

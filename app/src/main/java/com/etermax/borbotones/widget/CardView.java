@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.etermax.borbotones.model.Card;
@@ -22,9 +21,9 @@ public class CardView extends ImageView implements View.OnClickListener{
     public void setCard( Card card )
     {
         mCard = card;
-        setBackgroundColor( mCard.mType.getColor() );
+        setBackgroundColor( mCard.type.getColor() );
 
-        Glide.with(getContext()).load(mCard.mDrawableId).into(this);
+        Glide.with(getContext()).load(mCard.resource).into(this);
 
     }
 

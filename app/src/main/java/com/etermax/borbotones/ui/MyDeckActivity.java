@@ -1,8 +1,8 @@
 package com.etermax.borbotones.ui;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -15,7 +15,7 @@ import com.etermax.borbotones.widget.CardView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyDeckActivity extends AppCompatActivity {
+public class MyDeckActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

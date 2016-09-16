@@ -3,9 +3,12 @@ package com.etermax.borbotones.data;
 import com.etermax.borbotones.BorbotonesApplication;
 import com.etermax.borbotones.model.Card;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Deck {
@@ -25,7 +28,10 @@ public class Deck {
     private Deck() {
         Gson gson = new Gson();
         String json = getJson();
-        deckList = (List<Card>) gson.fromJson(json, Card.class);
+
+        Type listType = new TypeToken<ArrayList<Card>>(){}.getType();
+
+        deckList = gson.fromJson(json, listType);
     }
 
     private String getJson() {
@@ -42,4 +48,11 @@ public class Deck {
         }
         return json;
     }
+
+
+//    public Card getRandom()
+//    {
+//        Random random = new Random();
+//
+//    }
 }

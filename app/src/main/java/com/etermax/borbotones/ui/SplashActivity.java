@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.etermax.borbotones.R;
+import com.etermax.borbotones.data.Deck;
 
 public class SplashActivity extends Activity implements Runnable {
 
@@ -16,7 +17,7 @@ public class SplashActivity extends Activity implements Runnable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        //Deck.getInstance();
+        Deck.getInstance();
 
         runSplash();
     }
