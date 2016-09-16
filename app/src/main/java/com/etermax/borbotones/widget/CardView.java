@@ -21,16 +21,11 @@ public class CardView extends ImageView implements View.OnClickListener{
     public void setCard( Card card )
     {
         mCard = card;
-        setBackgroundColor( mCard.type.getColor() );
+        //setBackgroundColor( mCard.type.getColor() );
 
         Glide.with(getContext()).load(mCard.getResourceId()).into(this);
 
     }
-
-//    @Override
-//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        super.onMeasure(widthMeasureSpec, heightMeasureSpec > 0 ? heightMeasureSpec : widthMeasureSpec);//Square
-//    }
 
     @Override
     public void onClick(View v) {
