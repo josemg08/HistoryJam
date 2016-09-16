@@ -8,18 +8,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".SplashActivity">
+        <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <activity android:name=".ModeSelectionActivity"/>
-
-        <activity android:name=".HistoricEventSelectionActivity"/>
-
+        <activity android:name=".ui.ModeSelectionActivity"/>
+        <activity android:name=".ui.HistoricEventSelectionActivity"/>
+        <activity android:name=".ui.MyDeckActivity">
+        </activity>
     </application>
 
 </manifest>
