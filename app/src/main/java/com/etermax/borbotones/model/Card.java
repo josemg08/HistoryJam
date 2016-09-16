@@ -2,13 +2,16 @@ package com.etermax.borbotones.model;
 
 import android.graphics.Color;
 
+import java.util.Random;
+
 public class Card {
 
-    public enum CardType
-    {
+    Random random;
+
+    public enum CardType {
         SCIENCIST(Color.RED),
         POLITICIAN(Color.YELLOW),
-        MILITAR(Color.GREEN),
+        MILITARY(Color.GREEN),
         ATHLETE(Color.BLUE),
         ARTIST(Color.GRAY);
 
@@ -21,6 +24,13 @@ public class Card {
         public int getColor() {
             return mColor;
         }
+    }
+
+    public Card()
+    {
+        random = new Random();
+        int index = random.nextInt(CardType.values().length);
+        mType = CardType.values()[index];
     }
 
     public CardType mType;
