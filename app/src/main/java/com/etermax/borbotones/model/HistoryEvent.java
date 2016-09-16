@@ -1,5 +1,9 @@
 package com.etermax.borbotones.model;
 
+import android.content.res.Resources;
+
+import com.etermax.borbotones.BorbotonesApplication;
+
 import java.io.Serializable;
 
 /**
@@ -12,7 +16,12 @@ public class HistoryEvent implements Serializable {
 
     public String description;
     public String title;
-    public int resource;
+    public String resource;
+
+    public int getResourceId() {
+        Resources resources = BorbotonesApplication.getContext().getResources();
+        return resources.getIdentifier(resource, "drawable", BorbotonesApplication.getContext().getPackageName());
+    }
 
 }
 //.___ End of HistoryEvent __./

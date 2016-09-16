@@ -1,11 +1,15 @@
 package com.etermax.borbotones.data;
 
 import com.etermax.borbotones.BorbotonesApplication;
+import com.etermax.borbotones.model.Card;
 import com.etermax.borbotones.model.HistoryEvent;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +20,7 @@ import java.util.List;
 
 public class AnnalsOfHistory {
 
-    List<HistoryEvent> historyEventsList;
+    public ArrayList<HistoryEvent> historyEventsList;
 
     private static AnnalsOfHistory instance;
 
@@ -31,7 +35,8 @@ public class AnnalsOfHistory {
     private AnnalsOfHistory() {
         Gson gson = new Gson();
         String json = getJson();
-        historyEventsList = (List<HistoryEvent>) gson.fromJson(json, HistoryEvent.class);
+        Type listType = new TypeToken<ArrayList<HistoryEvent>>(){}.getType();
+        historyEventsList = gson.fromJson(json, listType);
     }
 
     private String getJson() {

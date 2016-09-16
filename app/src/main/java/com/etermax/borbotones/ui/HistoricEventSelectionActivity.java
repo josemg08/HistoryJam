@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.etermax.borbotones.R;
+import com.etermax.borbotones.data.AnnalsOfHistory;
 import com.etermax.borbotones.model.HistoryEvent;
 
 /**
@@ -27,20 +28,7 @@ public class HistoricEventSelectionActivity extends AppCompatActivity {
         setContentView(R.layout.historic_event_selection_layout);
         historicEventsListView = (ListView) findViewById(R.id.history_events_list);
 
-        // Defined Array values to show in ListView
-        String[] values = new String[] { "Android List View",
-                "Adapter implementation",
-                "Simple List View In Android",
-                "Create List View Android",
-                "Android Example",
-                "List View Source Code",
-                "List View Array Adapter",
-                "Android Example List View"
-        };
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, values);
-
+        ArrayAdapter<HistoryEvent> adapter = new HistoryListAdapter(this, AnnalsOfHistory.getInstance().historyEventsList);
 
         // Assign adapter to ListView
         historicEventsListView.setAdapter(adapter);
