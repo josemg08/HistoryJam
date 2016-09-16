@@ -1,13 +1,13 @@
 package com.etermax.borbotones.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 
 import com.etermax.borbotones.R;
 
-public class SplashActivity extends AppCompatActivity implements Runnable {
+public class SplashActivity extends Activity implements Runnable {
 
     private static final int SPLASH_DURATION = 500;
 
@@ -15,6 +15,8 @@ public class SplashActivity extends AppCompatActivity implements Runnable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        //Deck.getInstance();
 
         runSplash();
     }
