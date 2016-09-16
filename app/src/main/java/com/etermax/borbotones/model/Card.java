@@ -12,8 +12,8 @@ public class Card implements Serializable {
     public enum CardType {
         SCIENCIST(Color.RED, "scientist"),
         POLITICIAN(Color.YELLOW, "politician"),
-        MILITARY(Color.GREEN, "militar"),
-        ATHLETE(Color.BLUE, "athlet"),
+        MILITARY(Color.GREEN, "military"),
+        ATHLETE(Color.BLUE, "athlete"),
         ARTIST(Color.GRAY, "artist");
 
         private int mColor;
