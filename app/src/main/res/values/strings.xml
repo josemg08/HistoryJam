@@ -1,3 +1,9 @@
 <resources>
+
     <string name="app_name">Borbotones</string>
+
+    <!--.___ Mode selection strings __.-->
+    <string name="vs">1 vs 1</string>
+    <string name="history">History</string>
+
 </resources>
