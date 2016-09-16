@@ -2,8 +2,11 @@
 
     <string name="app_name">Borbotones</string>
 
+    <string name="splash">Splash</string>
+
     <!--.___ Mode selection strings __.-->
     <string name="vs">1 vs 1</string>
     <string name="history">History</string>
+    <string name="my_deck">My deck</string>
 
 </resources>
