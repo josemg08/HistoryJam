@@ -4,14 +4,14 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.widget.TextView;
 
 import com.etermax.borbotones.R;
 import com.etermax.borbotones.util.Typefaces;
 
-public class CustomFontTextView extends AppCompatTextView {
+public class CustomFontTextView extends TextView {
 
     public CustomFontTextView(Context context) {
         super(context);

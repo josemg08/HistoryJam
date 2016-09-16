@@ -1,32 +1,54 @@
 package com.etermax.borbotones.model;
 
+import android.content.res.Resources;
 import android.graphics.Color;
 
-public class Card {
+import com.etermax.borbotones.BorbotonesApplication;
 
-    public enum CardType
-    {
-        SCIENCIST(Color.RED),
-        POLITICIAN(Color.YELLOW),
-        MILITAR(Color.GREEN),
-        ATHLETE(Color.BLUE),
-        ARTIST(Color.GRAY);
+import java.io.Serializable;
+import java.util.Random;
+
+public class Card implements Serializable {
+
+    Random random;
+
+    public enum CardType {
+        SCIENCIST(Color.RED, "scientist"),
+        POLITICIAN(Color.YELLOW, "politician"),
+        MILITARY(Color.GREEN, "military"),
+        ATHLETE(Color.BLUE, "athlete"),
+        ARTIST(Color.GRAY, "artist");
 
         private int mColor;
+        private String mCardTypeName;
 
-        CardType(int color) {
+        CardType(int color, String cardTypeName) {
             mColor = color;
+            mCardTypeName = cardTypeName;
         }
 
         public int getColor() {
             return mColor;
         }
+
+        public String getCardTypeName(){
+            return mCardTypeName;
+        }
+
     }
 
-    public CardType mType;
-    public String   mName;
-    public String   mDescription;
-    public int      mAttack;
-    public int      mDefense;
-    public int      mDrawableId;
+    public CardType type;
+    public String name;
+    public String description;
+    public int id;
+    public int attack;
+    public int defense;
+    public String resource;
+
+    public int getResourceId()
+    {
+        Resources resources = BorbotonesApplication.getContext().getResources();
+        return resources.getIdentifier(resource, "drawable", BorbotonesApplication.getContext().getPackageName());
+    }
 }
+

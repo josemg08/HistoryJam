@@ -1,11 +1,12 @@
 package com.etermax.borbotones.ui;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.etermax.borbotones.R;
 
-public class MatchActivity extends AppCompatActivity {
+public class MatchActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

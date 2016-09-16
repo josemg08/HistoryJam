@@ -34,6 +34,7 @@ public class ArenaDeck extends RelativeLayout {
     private LinearLayout llArenaCards;
     private LinearLayout llCurrentCards;
     private DeckActions deckActions;
+    private PlayerStatusWidget playerStatusWidget;
 
     private ArrayList<GameCard> arenaCards = new ArrayList<>();
     private ArrayList<GameCard> currentCards = new ArrayList<>();
@@ -69,16 +70,6 @@ public class ArenaDeck extends RelativeLayout {
 
         rootView = inflate(getContext(), R.layout.deck_arena_layout, null);
         addView(rootView);
-//
-//        rlContainer = (RelativeLayout) rootView.findViewById(R.id.rlContainer);
-//        ivCardBackgrond = (ImageView) rootView.findViewById(R.id.ivCardBackground);
-//        ivFlippedBackground = (ImageView) rootView.findViewById(R.id.ivFlippedBackground);
-//        tvAttack = (TextView) rootView.findViewById(R.id.tvAttackPoints);
-//        tvLife = (TextView) rootView.findViewById(R.id.tvLifePoints);
-//
-//
-//        isFlipped = true;
-//        rlContainer.setVisibility(INVISIBLE);
     }
 
     private void setupCards() {
@@ -142,7 +133,7 @@ public class ArenaDeck extends RelativeLayout {
     public void receiveCardDamage(int targetCardId, int attackPoints, int updatedLife) {
 
         for (GameCard gameCard: arenaCards) {
-            if(gameCard.getCard().mDrawableId == targetCardId){
+            if(gameCard.getCard().defense == targetCardId){
                 gameCard.animateAttackAndUpdateLife(updatedLife);
                 return;
             }
@@ -150,5 +141,6 @@ public class ArenaDeck extends RelativeLayout {
     }
 
     public void receiveUserDamage(int attackPoints, int updatedLife) {
+//        playerStatusWidget.rece
     }
 }

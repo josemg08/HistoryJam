@@ -79,8 +79,8 @@ public class GameCard extends RelativeLayout {
     public void buildCard(Card card) {
         this.card = card;
 
-        life = card.mDefense;
-        attack = card.mAttack;
+        life = card.defense;
+        attack = card.attack;
 
         updateLifeUI();
         updateAttackUI();
