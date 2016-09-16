@@ -20,31 +20,30 @@ public class ModeSelectionActivity extends AppCompatActivity implements Button.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mode_selection_layout);
-        Button versusButton = (Button) findViewById(R.id.vs_button);
-        assert versusButton != null;
-        versusButton.setOnClickListener(this);
-        Button historyButton = (Button) findViewById(R.id.history_button);
-        assert historyButton != null;
-        historyButton.setOnClickListener(this);
+
+        findViewById(R.id.my_deck_button).setOnClickListener( this );
+        findViewById(R.id.vs_button).setOnClickListener( this );
+        findViewById(R.id.history_button).setOnClickListener( this );
     }
 
     @Override
     public void onClick(View view) {
-        Intent intent;
+        Intent intent = null;
+
         switch(view.getId()){
             case R.id.vs_button:
                 intent = new Intent(this, HistoricEventSelectionActivity.class );
-                startActivity(intent);
                 break;
             case R.id.history_button:
                 intent = new Intent(this, HistoricEventSelectionActivity.class );
-                startActivity(intent);
                 break;
-
             case R.id.my_deck_button:
-                intent = new Intent(this, HistoricEventSelectionActivity.class );
-                startActivity(intent);
+                intent = new Intent(this, MyDeckActivity.class );
                 break;
+        }
+
+        if( intent != null ) {
+            startActivity(intent);
         }
     }
 }
