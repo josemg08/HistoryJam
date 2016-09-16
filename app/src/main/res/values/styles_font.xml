@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MikadoRegular">
+        <item name="font_custom">MikadoRegular.otf</item>
+    </style>
+
+    <style name="BrandonRegular">
+        <item name="font_custom">BrandonRegular.otf</item>
+    </style>
+
+    <style name="MikadoBlack">
+        <item name="font_custom">MikadoBlack.otf</item>
+    </style>
+
+</resources>
