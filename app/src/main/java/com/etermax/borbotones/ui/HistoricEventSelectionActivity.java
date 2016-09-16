@@ -1,8 +1,8 @@
 package com.etermax.borbotones.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,7 +17,7 @@ import com.etermax.borbotones.model.HistoryEvent;
  * __.
  */
 
-public class HistoricEventSelectionActivity extends AppCompatActivity {
+public class HistoricEventSelectionActivity extends Activity {
 
     ListView historicEventsListView;
 

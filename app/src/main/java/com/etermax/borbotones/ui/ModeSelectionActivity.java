@@ -1,8 +1,8 @@
 package com.etermax.borbotones.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,7 +14,7 @@ import com.etermax.borbotones.R;
  * __.
  */
 
-public class ModeSelectionActivity extends AppCompatActivity implements Button.OnClickListener {
+public class ModeSelectionActivity extends Activity implements Button.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

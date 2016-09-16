@@ -25,6 +25,7 @@ public class MyDeckActivity extends Activity {
 
         GridView mGridView = (GridView) findViewById(R.id.my_deck_gridview);
         mGridView.setAdapter( new MyDeckAdapter(this) );
+
     }
 
     class MyDeckAdapter extends BaseAdapter {
@@ -73,7 +74,8 @@ public class MyDeckActivity extends Activity {
                 view = (CardView)convertView;
             }
 
-            view.setCard( mCardList.get(position) );
+//            view.setCard( mCardList.get(position) );
+
             return view;
         }
     }
