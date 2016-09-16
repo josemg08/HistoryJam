@@ -2,25 +2,33 @@ package com.etermax.borbotones.model;
 
 import android.graphics.Color;
 
-public class Card {
+import java.io.Serializable;
 
-    public enum CardType
-    {
-        SCIENCIST(Color.RED),
-        POLITICIAN(Color.YELLOW),
-        MILITAR(Color.GREEN),
-        ATHLETE(Color.BLUE),
-        ARTIST(Color.GRAY);
+public class Card implements Serializable{
+
+    public enum CardType {
+        SCIENCIST(Color.RED, "scientist"),
+        POLITICIAN(Color.YELLOW, "politician"),
+        MILITAR(Color.GREEN, "militar"),
+        ATHLETE(Color.BLUE, "athlet"),
+        ARTIST(Color.GRAY, "artist");
 
         private int mColor;
+        private String mCardTypeName;
 
-        CardType(int color) {
+        CardType(int color, String cardTypeName) {
             mColor = color;
+            mCardTypeName = cardTypeName;
         }
 
         public int getColor() {
             return mColor;
         }
+
+        public String getCardTypeName(){
+            return mCardTypeName;
+        }
+
     }
 
     public CardType mType;
