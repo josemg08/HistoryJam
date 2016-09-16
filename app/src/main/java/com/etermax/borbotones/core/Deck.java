@@ -1,5 +1,8 @@
 package com.etermax.borbotones.core;
 
+
+import com.etermax.borbotones.model.*;
+
 import java.util.ArrayList;
 
 /**
@@ -7,5 +10,5 @@ import java.util.ArrayList;
  */
 
 public class Deck {
-    public ArrayList<Card> cards;
+    public ArrayList<com.etermax.borbotones.model.Card> cards;
 }

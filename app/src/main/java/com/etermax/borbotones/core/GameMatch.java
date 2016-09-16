@@ -8,4 +8,6 @@ public class GameMatch {
 
     Player playerOne;
     Player playerTwo;
+    Deck playerOneDeck;
+    Deck playerTwoDeck;
 }

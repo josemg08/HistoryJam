@@ -20,7 +20,7 @@ public class SplashActivity extends AppCompatActivity implements Runnable {
     }
 
     private void onTimeElapsed() {
-        Intent intent = new Intent(this, ModeSelectionActivity.class );
+        Intent intent = new Intent(this, MatchActivity.class );
         startActivity(intent);
     }
 

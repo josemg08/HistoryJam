@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0000ff">
+
+    <LinearLayout
+        android:id="@+id/llArenaCards"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
+        android:weightSum="1">
+        <com.etermax.borbotones.widget.GameCard
+            android:background="#00FFFF"
+            android:layout_width="30dp"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llCurrentCards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp">
+        <com.etermax.borbotones.widget.GameCard
+            android:background="#00FFFF"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"/>
+        <com.etermax.borbotones.widget.GameCard
+            android:background="#00FFFF"
+            android:layout_width="30dp"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+
+    <com.etermax.borbotones.widget.PlayerStatusWidget
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

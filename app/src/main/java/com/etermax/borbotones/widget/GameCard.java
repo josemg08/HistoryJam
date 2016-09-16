@@ -35,6 +35,10 @@ public class GameCard extends RelativeLayout {
 
     private Card card;
 
+    public Card getCard() {
+        return card;
+    }
+
     public GameCard(Context context) {
         super(context);
         setupView();
@@ -72,6 +76,16 @@ public class GameCard extends RelativeLayout {
         rlContainer.setVisibility(INVISIBLE);
     }
 
+    public void buildCard(Card card) {
+        this.card = card;
+
+        life = card.mDefense;
+        attack = card.mAttack;
+
+        updateLifeUI();
+        updateAttackUI();
+    }
+
     public void flip() {
         isFlipped = !isFlipped;
 
@@ -84,16 +98,6 @@ public class GameCard extends RelativeLayout {
         ivFlippedBackground.setVisibility(isFlipped ? VISIBLE : INVISIBLE);
     }
 
-    public void buildCard(Card card) {
-        this.card = card;
-
-        life = card.mDefense;
-        attack = card.mAttack;
-
-        updateLifeUI();
-        updateAttackUI();
-    }
-
     private void updateAttackUI() {
         tvAttack.setText("A:"+attack);
     }
@@ -102,8 +106,8 @@ public class GameCard extends RelativeLayout {
         tvLife.setText("V:"+life);
     }
 
-    public void receiveAttack(int decreasePoints) {
-        life = Math.max(life - decreasePoints, 0);
+    public void animateAttackAndUpdateLife(int updatedLife) {
+        life = Math.max(updatedLife, 0);
         updateLifeUI();
     }
 }
