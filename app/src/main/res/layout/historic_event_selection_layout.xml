@@ -3,15 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/mydeck_background">
+    android:background="@drawable/historyevents_back">
 
-    <com.etermax.borbotones.widget.CustomFontTextView
-        style="@style/MikadoBlack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
-        android:textSize="@dimen/title_size"
-        android:text="@string/history_events"/>
+        android:background="@drawable/history_title"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/history_events_list"

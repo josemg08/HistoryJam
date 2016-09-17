@@ -2,24 +2,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#af0a0707">
+    android:layout_margin="100px">
 
     <ImageView
         android:id="@+id/card_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/popup01"/>
+        android:scaleType="centerInside"
+        android:src="@drawable/popup01"/>
+
+    <com.etermax.borbotones.widget.CustomFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Sigmund Freud"
+        style="@style/Grobold"
+        android:textSize="21dp"
+        android:textColor="@color/white"/>
+
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="100">
+        android:weightSum="100"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="60"/>
+            android:layout_weight="57.43"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,13 +40,14 @@
             android:orientation="vertical"
             android:layout_weight="40"
             android:layout_marginLeft="20dp">
+
             <com.etermax.borbotones.widget.CustomFontTextView
                 android:id="@+id/card_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Grobold"
                 android:text="Ciencia"
-                android:textSize="35dp"
+                android:textSize="25dp"
                 android:textColor="@color/blueDark"/>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -45,7 +59,7 @@
                     android:layout_height="wrap_content"
                     style="@style/Grobold"
                     android:text="A 150"
-                    android:textSize="25dp"
+                    android:textSize="20dp"
                     android:textColor="@color/blueDark"/>
                 <com.etermax.borbotones.widget.CustomFontTextView
                     android:id="@+id/card_attack"
@@ -69,7 +83,7 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="55dp"
                 android:layout_marginRight="15dp">
                 <TextView
                     android:id="@+id/card_description"
@@ -78,18 +92,9 @@
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
                     android:textColor="@color/blueVeryDark"
-                    android:text=" was an Austrian neurologist and the founder of psychoanalysis, a clinical method for treating psychopathology through dialogue between a patient and a psychoanalyst.[3] Freud was born to Galician Jewish parents in the Moravian town of Freiberg, in the Austro-Hungarian Empire. He qualified as a doctor of medicine in 1881 at the University of Vienna.[4][5] Upon completing his habilitation in 1885, he was appointed a docent in neuropathology and became an affiliated professor in 1902."/>
-
+                    android:text="Sigmund Freuda (Príbor, 6 de mayo de 1856-Londres, 23 de septiembre de 1939) fue un médico neurólogo austriaco de origen judío, padre del psicoanálisis y una de las mayores figuras intelectuales del siglo XX.1
+Su interés científico inicial como investigador se centró en el campo de la neurología, derivando progresivamente hacia la vertiente psicológica de las afecciones mentales, investigaciones de las que daría cuenta en la casuística de su consultorio privado. Estudió en París, con el neurólogo francés Jean-Martin Charcot, las aplicaciones de la hipnosis en el tratamiento de la histeria. De vuelta a la ciudad de Viena y en colaboración con Josef Breuer desarrolló el método catártico."/>
             </ScrollView>
         </LinearLayout>
     </LinearLayout>
-
-    <com.etermax.borbotones.widget.CustomFontTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Sigmund Freud"
-        style="@style/Grobold"
-        android:textSize="23dp"
-        android:textColor="@color/white"/>
 </RelativeLayout>

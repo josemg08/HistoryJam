@@ -3,7 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <View
+        android:id="@+id/card_selector_view"
+        android:background="@drawable/selected"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <ImageView
+        android:padding="1dp"
         android:id="@+id/card_played_holder_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

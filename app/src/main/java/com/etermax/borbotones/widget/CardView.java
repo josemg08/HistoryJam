@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
@@ -44,13 +43,8 @@ public class CardView extends RelativeLayout implements View.OnClickListener {
         super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY));
     }
 
-    PopupWindow popUp;
-
     @Override
     public void onClick(View v) {
-        //new AlertDialog.Builder(getContext()).setView( new I).create().show();
-
-        // Create the AlertDialog object and return it
         Intent intent = new Intent(getContext(), CardInformationActivity.class);
         intent.putExtra(CardInformationActivity.CARD_KEY, mCard);
         getContext().startActivity(intent);
