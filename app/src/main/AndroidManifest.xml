@@ -38,6 +38,7 @@
         <activity
             android:name=".ui.FriendListActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".ui.MatchActivity" android:screenOrientation="landscape"/>
     </application>
 
 </manifest>
