@@ -87,8 +87,9 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/cards_player"
         android:layout_below="@+id/cards_opponent"
-        android:layout_marginLeft="@dimen/distance_50"
-        android:layout_marginRight="@dimen/distance_50"
+        android:layout_toRightOf="@+id/avatar_opponent"
+        android:layout_toLeftOf="@+id/deck_opponent"
+        android:background="@drawable/cloth"
         android:orientation="vertical"
         android:weightSum="2">
 
