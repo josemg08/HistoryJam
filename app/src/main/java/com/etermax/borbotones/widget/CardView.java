@@ -13,10 +13,10 @@ import com.etermax.borbotones.R;
 import com.etermax.borbotones.model.Card;
 import com.etermax.borbotones.ui.CardInformationActivity;
 
-public class CardView extends RelativeLayout implements View.OnClickListener{
+public class CardView extends RelativeLayout implements View.OnClickListener {
 
     ImageView cardImageView;
-    View      enabledView;
+    View enabledView;
 
     Card mCard;
 
@@ -24,21 +24,25 @@ public class CardView extends RelativeLayout implements View.OnClickListener{
         super(context);
         inflate(getContext(), R.layout.card_view, this);
         setOnClickListener(this);
-        cardImageView = (ImageView)findViewById(R.id.card_image);
+        cardImageView = (ImageView) findViewById(R.id.card_image);
         enabledView = findViewById(R.id.enabled);
     }
 
-    public void setCard( Card card )
-    {
+    public void setCard(Card card, boolean enabled) {
         mCard = card;
-        Glide.with(getContext()).load(mCard.getResourceId()).into(cardImageView);
+        enabledView.setEnabled(enabled);
+        if (enabled) {
+            Glide.with(getContext()).load(mCard.getResourceId()).into(cardImageView);
+        } else {
+            Glide.with(getContext()).load(R.drawable.card_revere).into(cardImageView);
+        }
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int width = MeasureSpec.getSize(widthMeasureSpec);
         int height = width * 735 / 505;
-        super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY ));
+        super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY));
     }
 
     @Override
@@ -51,6 +55,5 @@ public class CardView extends RelativeLayout implements View.OnClickListener{
     @Override
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
-        findViewById(R.id.enabled).setEnabled(enabled);
     }
 }

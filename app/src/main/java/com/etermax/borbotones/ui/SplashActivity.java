@@ -7,6 +7,7 @@ import android.os.Handler;
 
 import com.etermax.borbotones.R;
 import com.etermax.borbotones.data.Deck;
+import com.etermax.borbotones.data.FriendParser;
 
 public class SplashActivity extends Activity implements Runnable {
 
@@ -18,7 +19,7 @@ public class SplashActivity extends Activity implements Runnable {
         setContentView(R.layout.activity_splash);
 
         Deck.getInstance();
-
+        FriendParser.getInstance();
         runSplash();
     }
 

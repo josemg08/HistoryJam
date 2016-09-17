@@ -1,7 +1,7 @@
 package com.etermax.borbotones.data;
 
 import com.etermax.borbotones.BorbotonesApplication;
-import com.etermax.borbotones.model.Card;
+import com.etermax.borbotones.model.Friend;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -10,35 +10,37 @@ import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
-public class Deck {
+/**
+ * Created by charly on 17/9/16.
+ */
+public class FriendParser {
 
-    List<Card> deckList;
+    private List<Friend> friendList;
 
-    private static Deck instance;
+    private static FriendParser instance;
 
-    public static Deck getInstance() {
+    public static FriendParser getInstance() {
         if (instance == null) {
-            instance = new Deck();
+            instance = new FriendParser();
         }
 
         return instance;
     }
 
-    private Deck() {
+    private FriendParser() {
         Gson gson = new Gson();
         String json = getJson();
 
-        Type listType = new TypeToken<ArrayList<Card>>(){}.getType();
+        Type listType = new TypeToken<ArrayList<Friend>>(){}.getType();
 
-        deckList = gson.fromJson(json, listType);
+        friendList = gson.fromJson(json, listType);
     }
 
     private String getJson() {
         String json = null;
         try {
-            InputStream is = BorbotonesApplication.getContext().getAssets().open("deck.json");
+            InputStream is = BorbotonesApplication.getContext().getAssets().open("friends.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -50,12 +52,7 @@ public class Deck {
         return json;
     }
 
-    public List<Card> getCards(){
-        return  deckList;
-    }
-
-    public Card getRandomCard()
-    {
-        return deckList.get(new Random().nextInt(deckList.size()));
+    public List<Friend> getFriendList() {
+        return friendList;
     }
 }

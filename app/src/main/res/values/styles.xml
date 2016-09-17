@@ -10,7 +10,7 @@
 
     <!--.___ Mode selection styles __.-->
 
-    <style name="mode_selection_button_style" >
+    <style name="mode_selection_button_style" parent="MikadoBlack">
         <item name="android:layout_marginLeft">@dimen/distance_50</item>
         <item name="android:layout_marginRight">@dimen/distance_50</item>
         <item name="android:textColor">@color/white</item>

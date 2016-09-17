@@ -37,6 +37,7 @@ public class MyDeckActivity extends Activity {
         public MyDeckAdapter(Context context)
         {
             mContext = context;
+            //mCardList = Deck.getInstance().getCards();
             mCardList = new ArrayList<>();
             mCardList.add(Deck.getInstance().getRandomCard());
             mCardList.add(Deck.getInstance().getRandomCard());
@@ -50,6 +51,7 @@ public class MyDeckActivity extends Activity {
             mCardList.add(Deck.getInstance().getRandomCard());
             mCardList.add(Deck.getInstance().getRandomCard());
             mCardList.add(Deck.getInstance().getRandomCard());
+           
         }
 
         @Override
@@ -76,10 +78,8 @@ public class MyDeckActivity extends Activity {
                 view = (CardView)convertView;
             }
 
-            view.setCard( mCardList.get(position) );
+            view.setCard( mCardList.get(position), position % 5 != 0  );
 
-            if( position % 5 == 0 )
-                view.setEnabled(false);
             return view;
         }
     }

@@ -3,6 +3,8 @@ package com.etermax.borbotones.ui;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,32 +20,27 @@ import com.etermax.borbotones.model.HistoryEvent;
  * __.
  */
 
-public class HistoricEventSelectionActivity extends Activity {
+public class HistoricEventSelectionActivity extends Activity implements HistoryListAdapter.OnHistoryListener {
 
-    ListView historicEventsListView;
+    RecyclerView historicEventsListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.historic_event_selection_layout);
-        historicEventsListView = (ListView) findViewById(R.id.history_events_list);
-
-        ArrayAdapter<HistoryEvent> adapter = new HistoryListAdapter(this, AnnalsOfHistory.getInstance().historyEventsList);
-
-        // Assign adapter to ListView
+        historicEventsListView = (RecyclerView) findViewById(R.id.history_events_list);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        historicEventsListView.setLayoutManager(layoutManager);
+        HistoryListAdapter adapter = new HistoryListAdapter(AnnalsOfHistory.getInstance().historyEventsList);
+        adapter.setOnHistoryListener(this);
         historicEventsListView.setAdapter(adapter);
-
-        // ListView Item Click Listener
-        historicEventsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                HistoryEvent historyEvent = new HistoryEvent();
-                Intent intent = new Intent(getApplicationContext(), HistoryInformationActivity.class);
-                intent.putExtra(HistoryInformationActivity.HISTORY_EVENT_KEY, historyEvent);
-                startActivity(intent);
-            }
-        });
     }
 
+    @Override
+    public void onSelectedEvent(HistoryEvent event) {
+        Intent intent = new Intent(getApplicationContext(), HistoryInformationActivity.class);
+        intent.putExtra(HistoryInformationActivity.HISTORY_EVENT_KEY, event);
+        startActivity(intent);
+    }
 }
 //.___ End of HistoricEventSelectionActivity __./

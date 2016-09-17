@@ -31,20 +31,21 @@ public class ModeSelectionActivity extends Activity implements Button.OnClickLis
         Intent intent = null;
 
         switch(view.getId()){
-            case R.id.vs_button:
-                intent = new Intent(this, HistoricEventSelectionActivity.class );
-                break;
             case R.id.history_button:
                 intent = new Intent(this, HistoricEventSelectionActivity.class );
                 break;
+            case R.id.vs_button:
+                intent = FriendListActivity.getIntent(this);
+                break;
+            default:
             case R.id.my_deck_button:
                 intent = new Intent(this, MyDeckActivity.class );
                 break;
         }
 
-        if( intent != null ) {
-            startActivity(intent);
-        }
+
+        startActivity(intent);
+
     }
 }
 //.___ End of ModeSelectionActivity __./

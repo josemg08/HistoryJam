@@ -1,42 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/content_history_information"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/history_event_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ImageView
-        android:id="@+id/history_event_image"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/earth"/>
+        android:layout_height="@dimen/history_banner_height">
 
-    <Button
+        <ImageView
+            android:id="@+id/history_event_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <com.etermax.borbotones.widget.CustomFontTextView
+            android:id="@+id/history_event_title"
+            style="@style/MikadoBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/distance_15"
+            android:layout_gravity="center"
+            android:shadowColor="@color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_size" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:background="@color/orange"
+        android:layout_height="wrap_content">
+
+    <com.etermax.borbotones.widget.CustomFontButton
         android:id="@+id/play_button"
+        style="@style/mode_selection_button_style"
         android:layout_width="200dp"
         android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
         android:background="@drawable/primary_button_background"
-        android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@id/history_event_image"
-        android:layout_marginBottom="10dp"
-        style="@style/mode_selection_button_style"
-        android:text="PLAY"/>
+        android:text="PLAY" />
+    </FrameLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/brownVeryLight"
         android:layout_below="@id/history_event_image">
 
-        <TextView
+        <com.etermax.borbotones.widget.CustomFontTextView
             android:id="@+id/history_event_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/MikadoRegular"
+            android:layout_gravity="left"
+            android:layout_margin="@dimen/distance_15" />
 
     </ScrollView>
 
-</RelativeLayout>
-<!--.___ End of activity_history_information __.-->
+</LinearLayout><!--.___ End of activity_history_information __.-->

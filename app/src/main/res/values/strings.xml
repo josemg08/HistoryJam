@@ -8,5 +8,9 @@
     <string name="vs">1 vs 1</string>
     <string name="history">History</string>
     <string name="my_deck">My deck</string>
+    <string name="friends">Friends</string>
+    <string name="history_events">History Events</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
