@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ff0000">
+    android:background="@android:color/transparent"
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/ivFlippedBackground"
         android:layout_width="match_parent"
+        android:scaleType="centerInside"
         android:layout_height="match_parent"
-        android:background="@drawable/card0"/>
+        android:src="@drawable/card_revere"/>
+
     <RelativeLayout
         android:id="@+id/rlContainer"
         android:layout_width="match_parent"
@@ -17,7 +19,9 @@
             android:id="@+id/ivCardBackground"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/card2"/>
+            android:scaleType="centerInside"
+            android:src="@drawable/card2"/>
+
         <ImageView
             android:id="@+id/ivCardBa"
             android:visibility="gone"

@@ -45,8 +45,7 @@ public class Card implements Serializable {
     public int defense;
     public String resource;
 
-    public int getResourceId()
-    {
+    public int getResourceId() {
         Resources resources = BorbotonesApplication.getContext().getResources();
         return resources.getIdentifier(resource, "drawable", BorbotonesApplication.getContext().getPackageName());
     }
