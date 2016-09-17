@@ -45,8 +45,8 @@
         android:background="@drawable/cloth"
         android:orientation="vertical"
         android:weightSum="2"
-        android:layout_marginLeft="@dimen/distance_50"
-        android:layout_marginRight="@dimen/distance_50">
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp">
 
         <LinearLayout
             android:id="@+id/slots_game_opponent"
@@ -54,6 +54,31 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal">
+
+            <com.etermax.borbotones.ui.CardPlayedHolder
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/earth"/>
+
+            <com.etermax.borbotones.ui.CardPlayedHolder
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/earth"/>
+
+            <com.etermax.borbotones.ui.CardPlayedHolder
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/earth"/>
+
+            <com.etermax.borbotones.ui.CardPlayedHolder
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/earth"/>
+
+            <com.etermax.borbotones.ui.CardPlayedHolder
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/earth"/>
 
         </LinearLayout>
 
