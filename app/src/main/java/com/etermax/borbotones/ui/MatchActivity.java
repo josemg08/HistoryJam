@@ -169,7 +169,11 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
             gamecard.setGameCardListener(new GameCard.OnGameCardListener() {
                 @Override
                 public void onCardConsume(Card card) {
-                    gameMachine.placeMyCard(card.id);
+                    try{
+                        gameMachine.placeMyCard(card.id);
+                    }catch (Exception e){
+
+                    }
                 }
             });
         }
