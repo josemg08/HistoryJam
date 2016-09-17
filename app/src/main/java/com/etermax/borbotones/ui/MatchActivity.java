@@ -11,6 +11,7 @@ import com.etermax.borbotones.core.GameMachine;
 import com.etermax.borbotones.core.Player;
 import com.etermax.borbotones.model.Card;
 import com.etermax.borbotones.widget.ArenaDeck;
+import com.etermax.borbotones.widget.DeckView;
 import com.etermax.borbotones.widget.GameCard;
 import com.etermax.borbotones.widget.PlayerStatusWidget;
 
@@ -48,8 +49,9 @@ public class MatchActivity extends Activity {
     ArrayList<CardPlayedHolder> minePlaceholders = new ArrayList<>();
 
     GameMachine gameMachine;
-    ArenaDeck mineDeck;
     private Card currentCard;
+    DeckView mineDeck;
+    DeckView opponentDeck;
     Player player;
     Player player2;
     com.etermax.borbotones.data.Deck deckDataSource;
@@ -68,6 +70,26 @@ public class MatchActivity extends Activity {
         player2.id = 1;
         player2.name = "Vasili";
         player2.life = 999;
+
+        Deck randomDeck = new Deck();
+        deckDataSource = com.etermax.borbotones.data.Deck.getInstance();
+
+        for (int i = 0; i < 15; i++) {
+            randomDeck.cards.add(deckDataSource.getRandomCard());
+        }
+
+        Deck randomDeck2 = new Deck();
+
+        for (int i = 0; i < 15; i++) {
+            randomDeck2.cards.add(deckDataSource.getRandomCard());
+        }
+
+        player.deck = randomDeck;
+        player2.deck = randomDeck2;
+
+
+        mineDeck = (DeckView) findViewById(R.id.deck_player_view);
+        opponentDeck = (DeckView) findViewById(R.id.deck_opponent_view);
 
         playerStatus      = (PlayerStatusWidget) findViewById(R.id.avatar_player);
         playerStatus.setName(player.name);
@@ -122,6 +144,12 @@ public class MatchActivity extends Activity {
         gameCardOpponent4 = (GameCard) findViewById(R.id.card_opponent_4);
         gameCardOpponent5 = (GameCard) findViewById(R.id.card_opponent_5);
 
+
+
+        mineDeck.setCards(player.deck.cards);
+        opponentDeck.setCards(player2.deck.cards);
+
+
         bindListeners();
         setupGame();
     }
@@ -135,27 +163,22 @@ public class MatchActivity extends Activity {
                 }
             });
         }
+
+
+        mineDeck.setOnDeckListener(new DeckView.OnDeckListener() {
+            @Override
+            public void onCardSelected(Card card) {
+                 addcardtofirstSlot(card.id,player.id);
+            }
+
+            @Override
+            public void onEmptiedDeck() {
+
+            }
+        });
     }
 
     private void setupGame(){
-
-
-        Deck randomDeck = new Deck();
-        deckDataSource = com.etermax.borbotones.data.Deck.getInstance();
-
-        for (int i = 0; i < 15; i++) {
-            randomDeck.cards.add(deckDataSource.getRandomCard());
-        }
-
-        Deck randomDeck2 = new Deck();
-
-        for (int i = 0; i < 15; i++) {
-            randomDeck2.cards.add(deckDataSource.getRandomCard());
-        }
-
-        player.deck = randomDeck;
-        player2.deck = randomDeck2;
-
 //
 //        mineDeck.buildArena(player, randomDeck);
 
@@ -164,14 +187,16 @@ public class MatchActivity extends Activity {
             @Override
             public void onClick(View v) {
                 currentCard = gameMachine.getCurrentCards(player2.id).get(0);
-                gameMachine.placeMyCard(currentCard.id);
+                opponentCard1Played.setCard(currentCard);
+                gameCardForUserAndCard(currentCard.id,player2.id).hide();
+                gameMachine.placeCard(currentCard.id,player2.id);
             }
         });
 
         findViewById(R.id.attack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameMachine.attackPlayer(100);
+                gameMachine.receiveUserAttack(player.life -100,player.id);
             }
         });
 
@@ -179,7 +204,7 @@ public class MatchActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Card card = gameMachine.getArenaCards(player2.id).get(0);
-                gameMachine.receiveUserAttack(card.attack,2);
+                gameMachine.receiveUserAttack(card.attack,player.id);
             }
         });
 
@@ -246,7 +271,8 @@ public class MatchActivity extends Activity {
     private void addcardtofirstSlot(int cardId, int playerId) {
         boolean isOpponent = playerId != player.id;
         for (GameCard gameCard: isOpponent? opponentGameCards:mineGameCards) {
-            if (gameCard.getCard() == null){
+            if (gameCard.getCard() != null){
+            }else{
                 gameCard.buildCard(deckDataSource.cardWithId(cardId),isOpponent);
                 return;
             }
