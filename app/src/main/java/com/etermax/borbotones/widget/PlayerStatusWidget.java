@@ -55,4 +55,6 @@ public class PlayerStatusWidget extends RelativeLayout {
     {
         mLevel.setText(Integer.toString(level) );
     }
+
+    
 }

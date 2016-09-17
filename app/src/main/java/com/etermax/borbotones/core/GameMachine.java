@@ -131,8 +131,13 @@ public class GameMachine {
     }
 
     public void placeMyCard(int cardId) {
+
         placeCard(cardId,player.id);
         listener.cardPlaced(cardId, player.id);
+    }
+    public void placeOpponentCard(int cardId) {
+        placeCard(cardId,opponent.id);
+        listener.cardPlaced(cardId, opponent.id);
     }
 
     public void placeCard(int cardId, int playerId) {

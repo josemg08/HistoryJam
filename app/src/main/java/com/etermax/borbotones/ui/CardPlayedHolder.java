@@ -30,6 +30,12 @@ class CardPlayedHolder extends RelativeLayout implements View.OnClickListener{
     View selectorView;
     private boolean selected = false;
 
+    public void setHolderOpponentListener(OnCardHolderOpponent holderOpponentListener) {
+        this.holderOpponentListener = holderOpponentListener;
+    }
+
+    private OnCardHolderOpponent holderOpponentListener;
+
     public void setHolderListener(OnCardHolderListener holderListener) {
         this.holderListener = holderListener;
     }
@@ -103,6 +109,9 @@ class CardPlayedHolder extends RelativeLayout implements View.OnClickListener{
             selectorView.setVisibility(VISIBLE);
             holderListener.onCardMarked(card);
         }
+        if(holderOpponentListener!=null && card!=null){
+            holderOpponentListener.onCardAttacked(card, this);
+        }
     }
 
 
@@ -117,6 +126,10 @@ class CardPlayedHolder extends RelativeLayout implements View.OnClickListener{
     public interface OnCardHolderListener{
 
         void onCardMarked(Card card);
+    }
+
+    public interface  OnCardHolderOpponent{
+        void onCardAttacked(Card card, View view);
     }
 
 }
