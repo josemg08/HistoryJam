@@ -271,26 +271,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="attackPlayer"
+            android:visibility="gone"
             android:id="@+id/attack"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="attack card"
+            android:visibility="gone"
             android:id="@+id/attackCard"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="pick card"
+            android:visibility="gone"
             android:id="@+id/pickCard"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="place card"
+            android:visibility="gone"
             android:id="@+id/placeCard"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="end my turn"
+            android:visibility="gone"
             android:id="@+id/endTurn"/>
     </LinearLayout>
 

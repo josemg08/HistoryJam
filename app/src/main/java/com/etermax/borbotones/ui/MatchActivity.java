@@ -48,6 +48,7 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
     ArrayList<GameCard> mineGameCards = new ArrayList<>();
     ArrayList<GameCard> opponentGameCards = new ArrayList<>();
     ArrayList<CardPlayedHolder> minePlaceholders = new ArrayList<>();
+    ArrayList<CardPlayedHolder> opponentPlaceholders = new ArrayList<>();
 
     GameMachine gameMachine;
     private Card currentCard;
@@ -124,6 +125,19 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
         opponentCard5Played = (CardPlayedHolder) findViewById(R.id.card5_opponent_played);
 
 
+
+        opponentPlaceholders.add(opponentCard1Played);
+        opponentPlaceholders.add(opponentCard2Played);
+        opponentPlaceholders.add(opponentCard3Played);
+        opponentPlaceholders.add(opponentCard4Played);
+        opponentPlaceholders.add(opponentCard5Played);
+
+        minePlaceholders.add(playerCard2Played);
+        minePlaceholders.add(playerCard3Played);
+        minePlaceholders.add(playerCard4Played);
+        minePlaceholders.add(playerCard5Played);
+
+
         gameCardPlayer1 = (GameCard) findViewById(R.id.card_player_1);
         gameCardPlayer2 = (GameCard) findViewById(R.id.card_player_2);
         gameCardPlayer3 = (GameCard) findViewById(R.id.card_player_3);
@@ -170,6 +184,10 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
                 @Override
                 public void onCardConsume(Card card) {
                     try{
+                        if(gameMachine.getArenaCards(player.id).size()>=5){
+                            return;
+                        }
+
                         gameMachine.placeMyCard(card.id);
                     }catch (Exception e){
 
@@ -204,54 +222,54 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
 //        mineDeck.buildArena(player, randomDeck);
 
         gameMachine = GameMachine.machine();
-        findViewById(R.id.placeCard).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentCard = gameMachine.getCurrentCards(player2.id).get(0);
-                opponentCard1Played.setCard(currentCard);
-                gameCardForUserAndCard(currentCard.id,player2.id).hide();
-                gameMachine.placeCard(currentCard.id,player2.id);
-            }
-        });
-
-        findViewById(R.id.attack).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gameMachine.receiveUserAttack(gameMachine.playerLife() -100,player.id);
-                playerStatus.setEnergy(gameMachine.playerLife());
-            }
-        });
-
-        findViewById(R.id.attackCard).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Card card = gameMachine.getArenaCards(player2.id).get(0);
-                int value = card.defense -10;
-
-                gameMachine.receiveCardAttack(card.defense-10,card.id,player.id);
-                if (value<=0) {
-                   opponentCard1Played.setCard(null);
-                }
-            }
-        });
-
-        findViewById(R.id.endTurn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gameMachine.endTurn();
-            }
-        });
+//        findViewById(R.id.placeCard).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                currentCard = gameMachine.getCurrentCards(player2.id).get(0);
+//                opponentCard1Played.setCard(currentCard);
+//                gameCardForUserAndCard(currentCard.id,player2.id).hide();
+//                gameMachine.placeCard(currentCard.id,player2.id);
+//            }
+//        });
+//
+//        findViewById(R.id.attack).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                gameMachine.receiveUserAttack(gameMachine.playerLife() -100,player.id);
+//                playerStatus.setEnergy(gameMachine.playerLife());
+//            }
+//        });
+//
+//        findViewById(R.id.attackCard).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Card card = gameMachine.getArenaCards(player2.id).get(0);
+//                int value = card.defense -10;
+//
+//                gameMachine.receiveCardAttack(card.defense-10,card.id,player.id);
+//                if (value<=0) {
+//                   opponentCard1Played.setCard(null);
+//                }
+//            }
+//        });
+//
+//        findViewById(R.id.endTurn).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                gameMachine.endTurn();
+//            }
+//        });
 
         gameMachine.setEngineListener(new GameMachine.GameStateListener() {
             @Override
             public void cardPlaced(int cardId, int playerId) {
                 Log.d(MatchActivity.class.getSimpleName(),"CARD PLACED");
                 if(playerId == player.id){
-                    playerCard1Played.setCard(deckDataSource.cardWithId(cardId));
+                    freeSpace(playerId).setCard(deckDataSource.cardWithId(cardId));
 
                 }else{
                     gameCardForUserAndCard(cardId,player2.id).hide();
-                    opponentCard1Played.setCard(deckDataSource.cardWithId(cardId));
+                    freeSpace(playerId).setCard(deckDataSource.cardWithId(cardId));
                 }
             }
 
@@ -288,13 +306,16 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
                     }
                     if(gameMachine.getArenaCards(player2.id).size() == 0){
 
-                        currentCard = gameMachine.getCurrentCards(player2.id).get(0);
-                        opponentCard1Played.setCard(currentCard);
-                        gameCardForUserAndCard(currentCard.id,player2.id).hide();
-                        gameMachine.placeCard(currentCard.id,player2.id);
+                        try {
+                            currentCard = gameMachine.getCurrentCards(player2.id).get(0);
+//                            freeSpace(player2.id).setCard(currentCard);
+                            gameCardForUserAndCard(currentCard.id,player2.id).hide();
+                            gameMachine.placeCard(currentCard.id,player2.id);
 
-                        botattack();
-                        gameMachine.endTurn();
+                            botattack();
+                            gameMachine.endTurn();
+                        }catch (Exception e){}
+
                     }
                 }else {
                     currentTurn ++;
@@ -368,10 +389,11 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
         opponentStatus.setOpponentListener(new PlayerStatusWidget.OnAvatarOpponentListener() {
             @Override
             public void onAttackAvatar() {
-                if(onCardPlayerSelected && cardSelected!=null){
-                    gameMachine.attackPlayer(cardSelected.attack);
+                if(onCardPlayerSelected && cardSelected!=null && myTurn){
                     onCardPlayerSelected = false;
                     cardSelected = null;
+                    gameMachine.attackPlayer(player2.id);
+                    gameMachine.endTurn();
                 }
             }
         });
@@ -381,21 +403,30 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
     private Card cardSelected = null;
 
 
+    private CardPlayedHolder freeSpace(int playerId){
+
+        for (CardPlayedHolder placeholder:playerId == player.id? minePlaceholders:opponentPlaceholders) {
+            if(placeholder.getCard()== null) {
+                return placeholder;
+            }
+        }
+        return null;
+    }
     @Override
     public void onCardAttacked(Card card, View view) {
-        if(onCardPlayerSelected && cardSelected!=null){
-            gameMachine.attackCard(cardSelected.attack, card.id);
+        if(onCardPlayerSelected && cardSelected!=null && myTurn){
+            int attaca= cardSelected.attack;
             onCardPlayerSelected = false;
             cardSelected = null;
-            Toast.makeText(this, "onCardAttacked " +card.name, Toast.LENGTH_SHORT).show();
+            gameMachine.attackCard(attaca, card.id);
+            gameMachine.endTurn();
         }
 
     }
 
     @Override
     public void onCardMarked(Card card, View view) {
-        if(!onCardPlayerSelected) {
-            Toast.makeText(this, "onCardMarked " +card.name, Toast.LENGTH_SHORT).show();
+        if(!onCardPlayerSelected && myTurn) {
             onCardPlayerSelected = true;
             cardSelected = card;
         }

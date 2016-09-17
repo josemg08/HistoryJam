@@ -116,6 +116,7 @@ public class GameCard extends RelativeLayout implements View.OnClickListener {
         if(!isOpponent){
             ivCardBackgrond.setVisibility(!isFlipped && card != null ? VISIBLE : GONE);
         }
+        ivCardBackgrond.setImageDrawable(getResources().getDrawable(card.getResourceId()));
     }
 
     private void updateAttackUI() {
