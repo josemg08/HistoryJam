@@ -78,8 +78,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
                     android:textColor="@color/blueVeryDark"
-                    android:text=" was an Austrian neurologist and the founder of psychoanalysis, a clinical method for treating psychopathology through dialogue between a patient and a psychoanalyst.[3] Freud was born to Galician Jewish parents in the Moravian town of Freiberg, in the Austro-Hungarian Empire. He qualified as a doctor of medicine in 1881 at the University of Vienna.[4][5] Upon completing his habilitation in 1885, he was appointed a docent in neuropathology and became an affiliated professor in 1902."/>
-
+                    android:text="Sigmund Freuda (Príbor, 6 de mayo de 1856-Londres, 23 de septiembre de 1939) fue un médico neurólogo austriaco de origen judío, padre del psicoanálisis y una de las mayores figuras intelectuales del siglo XX.1
+Su interés científico inicial como investigador se centró en el campo de la neurología, derivando progresivamente hacia la vertiente psicológica de las afecciones mentales, investigaciones de las que daría cuenta en la casuística de su consultorio privado. Estudió en París, con el neurólogo francés Jean-Martin Charcot, las aplicaciones de la hipnosis en el tratamiento de la histeria. De vuelta a la ciudad de Viena y en colaboración con Josef Breuer desarrolló el método catártico."/>
             </ScrollView>
         </LinearLayout>
     </LinearLayout>
