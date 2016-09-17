@@ -1,25 +1,18 @@
 package com.etermax.borbotones.widget;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.etermax.borbotones.R;
 import com.etermax.borbotones.core.Player;
 
-/**
- * @author juan on 16/09/16.
- */
-
 public class PlayerStatusWidget extends RelativeLayout {
 
-    private CustomFontTextView ctftvPlayerName;
-    private CustomFontTextView ctftvPlayerLife;
-    private Player player;
-    private View rootView;
+    private CustomFontTextView mPlayerName;
+    private CustomFontTextView mEnergy;
+    private CustomFontTextView mLevel;
+    private Player             mPlayer;
 
     public PlayerStatusWidget(Context context) {
         super(context);
@@ -36,26 +29,17 @@ public class PlayerStatusWidget extends RelativeLayout {
         setupView();
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public PlayerStatusWidget(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        setupView();
-    }
-
     private void setupView() {
+        inflate(getContext(), R.layout.player_status_widget_layout, this);
 
-        rootView = inflate(getContext(), R.layout.player_status_widget_layout, null);
-        addView(rootView);
-
-        ctftvPlayerName = (CustomFontTextView)findViewById(R.id.cftvPlayerName);
-        ctftvPlayerLife = (CustomFontTextView)findViewById(R.id.cftvPlayerLife);
+        mPlayerName = (CustomFontTextView)findViewById(R.id.player_name);
+        mEnergy     = (CustomFontTextView)findViewById(R.id.energy);
+        mLevel      = (CustomFontTextView)findViewById(R.id.level);
     }
 
     public void build(Player player) {
-        this.player = player;
-
-        ctftvPlayerName.setText(player.name);
-        ctftvPlayerLife.setText(player.life);
+        mPlayer = player;
+        mPlayerName.setText(player.name);
+        mEnergy.setText(player.life);
     }
-
 }
