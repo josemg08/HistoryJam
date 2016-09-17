@@ -177,7 +177,9 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
         mineDeck.setOnDeckListener(new DeckView.OnDeckListener() {
             @Override
             public void onCardSelected(Card card) {
-                 addcardtofirstSlot(card.id,player.id);
+                if(myTurn) {
+                    addcardtofirstSlot(card.id, player.id);
+                }
             }
 
             @Override
@@ -185,6 +187,11 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
 
             }
         });
+    }
+
+    private void botattack(){
+        gameMachine.receiveUserAttack(gameMachine.playerLife() -100,player.id);
+        playerStatus.setEnergy(gameMachine.playerLife());
     }
 
     private void setupGame(){
@@ -268,19 +275,27 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
             @Override
             public void turnChanged(int playerId) {
                 Log.d(MatchActivity.class.getSimpleName(),"TURN CHANGED");
-//                if(playerId == player2.id){
-//                    myTurn = false;
-//                    if(gameMachine.getArenaCards(player2.id).size() == 0){
-//                        currentCard = gameMachine.getCurrentCards(player2.id).get(0);
-//                        opponentCard1Played.setCard(currentCard);
-//                        gameCardForUserAndCard(currentCard.id,player2.id).hide();
-//                        gameMachine.placeCard(currentCard.id,player2.id);
-//                    }
-//                }else {
-//                    currentTurn ++;
-//                    myTurn = true;
-//
-//                }
+                if(playerId == player2.id){
+                    myTurn = false;
+                    if(gameMachine.getCurrentCards(player2.id).size() == 0){
+//                        addcardtofirstSlot(opponentDeck.consumeCards(1).get(0).id,playerId);
+                        gameMachine.pickCard(player2.id);
+                    }
+                    if(gameMachine.getArenaCards(player2.id).size() == 0){
+
+                        currentCard = gameMachine.getCurrentCards(player2.id).get(0);
+                        opponentCard1Played.setCard(currentCard);
+                        gameCardForUserAndCard(currentCard.id,player2.id).hide();
+                        gameMachine.placeCard(currentCard.id,player2.id);
+
+                        botattack();
+                        gameMachine.endTurn();
+                    }
+                }else {
+                    currentTurn ++;
+                    myTurn = true;
+
+                }
             }
 
             @Override
@@ -298,6 +313,9 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
     }
 
     private void addcardtofirstSlot(int cardId, int playerId) {
+        if(gameMachine.getCurrentCards(playerId).size()>=5){
+            return;
+        }
         boolean isOpponent = playerId != player.id;
         for (GameCard gameCard: isOpponent? opponentGameCards:mineGameCards) {
             if (gameCard.getCard() != null){
