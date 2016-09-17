@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="500px"
-                android:layout_height="540px"
+                android:layout_width="400px"
+                android:layout_height="400px"
                 android:gravity="center">
 
     <ImageView
@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="305px"
+        android:layout_marginTop="235px"
         android:text="PlayerName"
         android:textColor="@color/white"
         android:textSize="13sp"/>
@@ -47,9 +47,9 @@
                 android:layout_height="wrap_content"
                 android:text="3/5"
                 android:textColor="@color/white"
-                android:layout_marginTop="57px"
-                android:layout_marginLeft="130px"
-                android:textSize="10sp"/>
+                android:layout_marginTop="33px"
+                android:layout_marginLeft="70px"
+                android:textSize="8sp"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -68,9 +68,9 @@
                 android:layout_height="wrap_content"
                 android:text="105"
                 android:textColor="@color/white"
-                android:layout_marginTop="57px"
-                android:layout_marginLeft="140px"
-                android:textSize="10sp"/>
+                android:layout_marginTop="33px"
+                android:layout_marginLeft="90px"
+                android:textSize="8sp"/>
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

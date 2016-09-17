@@ -12,7 +12,6 @@ public class PlayerStatusWidget extends RelativeLayout {
     private CustomFontTextView mPlayerName;
     private CustomFontTextView mEnergy;
     private CustomFontTextView mLevel;
-    private Player             mPlayer;
 
     public PlayerStatusWidget(Context context) {
         super(context);
@@ -37,9 +36,24 @@ public class PlayerStatusWidget extends RelativeLayout {
         mLevel      = (CustomFontTextView)findViewById(R.id.level);
     }
 
+    public void setName(String name)
+    {
+        mPlayerName.setText(name);
+    }
+
+    public void setEnergy(int available, int total)
+    {
+        mEnergy.setText(available + "/" + total );
+    }
+
+    public void setLevel(int level)
+    {
+        mEnergy.setText(Integer.toString(level) );
+    }
+
     public void build(Player player) {
-        mPlayer = player;
-        mPlayerName.setText(player.name);
-        mEnergy.setText(player.life);
+        //mPlayer = player;
+        //mPlayerName.setText(player.name);
+        //mEnergy.setText(player.life);
     }
 }
