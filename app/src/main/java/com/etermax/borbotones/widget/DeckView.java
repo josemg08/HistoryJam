@@ -6,7 +6,9 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.etermax.borbotones.R;
 import com.etermax.borbotones.model.Card;
@@ -21,8 +23,10 @@ import java.util.Random;
  * Created by charly on 16/09/16.
  */
 
-public class DeckView extends ImageView implements View.OnClickListener {
+public class DeckView extends FrameLayout implements View.OnClickListener {
 
+    private ImageView imageView;
+    private TextView textView;
     private ArrayList<Card> cards = new ArrayList<>(0);
     private OnDeckListener onDeckListener = getDummyListener();
 
@@ -48,6 +52,9 @@ public class DeckView extends ImageView implements View.OnClickListener {
     }
 
     public void init(Context context, AttributeSet set) {
+        inflate(context, R.layout.deck_view, this);
+        imageView = (ImageView) findViewById(R.id.deck_image);
+        textView = (TextView) findViewById(R.id.deck_text);
         setOnClickListener(this);
         load();
     }
@@ -75,24 +82,25 @@ public class DeckView extends ImageView implements View.OnClickListener {
             return cardsTemp;
         }
         cardsTemp = new ArrayList<>(total);
-        while (total>0){
-            cardsTemp.add( cards.remove(--total));
+        while (total > 0) {
+            cardsTemp.add(cards.remove(--total));
         }
         return cardsTemp;
 
     }
 
-    private void load() {
-        int size = cards.size();
-        if (size > Constants.NUMBER_CARD_DECK / 2) {
-            setImageResource(R.drawable.card_revere);
-        } else if (size < Constants.NUMBER_CARD_DECK / 2 && size > Constants.NUMBER_CARD_DECK / 4) {
-            setImageResource(R.drawable.card_revere);
-        } else if (size < Constants.NUMBER_CARD_DECK / 4) {
-            setImageResource(R.drawable.card_revere);
-        } else {
-            setImageDrawable(null);
-        }
+    public void load() {
+        textView.setText(""+cards.size());
+//        int size = cards.size();
+//        if (size > Constants.NUMBER_CARD_DECK / 2) {
+//            setImageResource(R.drawable.card_revere);
+//        } else if (size < Constants.NUMBER_CARD_DECK / 2 && size > Constants.NUMBER_CARD_DECK / 4) {
+//            setImageResource(R.drawable.card_revere);
+//        } else if (size < Constants.NUMBER_CARD_DECK / 4) {
+//            setImageResource(R.drawable.card_revere);
+//        } else {
+//            setImageDrawable(null);
+//        }
     }
 
 

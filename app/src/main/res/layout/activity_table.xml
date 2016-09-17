@@ -4,17 +4,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
 
     <!-- Opponent -->
 
     <FrameLayout
         android:id="@+id/deck_opponent"
-        android:layout_width="50dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:background="@color/aqua">
+        android:layout_alignParentTop="true">
 
+        <com.etermax.borbotones.widget.DeckView
+            android:id="@+id/deck_opponent_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </FrameLayout>
 
     <LinearLayout
@@ -61,8 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
-        </LinearLayout>
+            android:orientation="horizontal"></LinearLayout>
 
     </LinearLayout>
 
@@ -81,12 +88,15 @@
 
     <FrameLayout
         android:id="@+id/deck_player"
-        android:layout_width="50dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:background="@color/aqua">
+        android:layout_alignParentRight="true">
 
+        <com.etermax.borbotones.widget.DeckView
+            android:id="@+id/deck_player_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </FrameLayout>
 
     <LinearLayout
