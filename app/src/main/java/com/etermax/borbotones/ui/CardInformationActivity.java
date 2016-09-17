@@ -42,7 +42,7 @@ public class CardInformationActivity extends Activity {
         //TODO mCardDefence = (TextView) findViewById(R.id.card_defence);
         mCardDescription = (TextView) findViewById(R.id.card_description);
 
-        setCardAttributes(card);
+        //setCardAttributes(card);
     }
 
     private void setCardAttributes(Card card){

@@ -12,6 +12,7 @@
 
     <!--.___ Card colors __.-->
     <color name="blue">#78BDCC</color>
+    <color name="blueVeryDark">#1f4850</color>
     <color name="blueDark">#63A1AD</color>
     <color name="aqua">#97DAD3</color>
     <color name="aquaDark">#6FBDB5</color>
