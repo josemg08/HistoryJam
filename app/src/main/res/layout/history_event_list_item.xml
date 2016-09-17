@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/history_row_height"
+    android:layout_height="80dp"
     android:orientation="horizontal"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    android:layout_margin="20dp">
 
     <ImageView
         android:id="@+id/history_item_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
         android:layout_gravity="center"
-        android:adjustViewBounds="true"
-        android:background="@color/aquaDark"
-        android:scaleType="centerCrop" />
+        android:adjustViewBounds="true" />
 
     <com.etermax.borbotones.widget.CustomFontTextView
         android:id="@+id/history_item_title"
         style="@style/Grobold"
-        android:textSize="50dp"
+        android:textSize="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
         android:layout_gravity="center"
+        android:layout_toRightOf="@id/history_item_image"
         android:shadowColor="@color/black"
         android:shadowDx="1"
         android:shadowDy="1"
