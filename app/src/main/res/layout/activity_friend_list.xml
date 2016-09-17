@@ -4,13 +4,12 @@
     android:layout_height="match_parent"
     android:background="@drawable/mydeck_background">
 
-    <com.etermax.borbotones.widget.CustomFontTextView
-        style="@style/MikadoBlack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
-        android:textSize="@dimen/title_size"
-        android:text="@string/friends"/>
+        android:layout_marginTop="15dp"
+        android:background="@drawable/myfriends_title"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/friend_recyclerView"
