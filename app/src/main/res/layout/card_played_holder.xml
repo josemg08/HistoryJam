@@ -6,7 +6,7 @@
 
     <View
         android:id="@+id/card_selector_view"
-        android:background="@color/red"
+        android:background="@drawable/selected"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

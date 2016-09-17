@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.etermax.borbotones.R;
 import com.etermax.borbotones.model.Card;
@@ -28,6 +29,12 @@ class CardPlayedHolder extends RelativeLayout implements View.OnClickListener{
     Card card;
     View selectorView;
     private boolean selected = false;
+
+    public void setHolderListener(OnCardHolderListener holderListener) {
+        this.holderListener = holderListener;
+    }
+
+    private OnCardHolderListener holderListener = getDummyListener();
 
     public CardPlayedHolder(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -85,17 +92,31 @@ class CardPlayedHolder extends RelativeLayout implements View.OnClickListener{
     }
 
 
+    public boolean isMarked() {
+        return selected;
+    }
 
     @Override
     public void onClick(View v) {
         if(card !=null && !selected){
             selected = true;
             selectorView.setVisibility(VISIBLE);
+            holderListener.onCardMarked(card);
         }
     }
 
+
+    private OnCardHolderListener getDummyListener(){
+        return new OnCardHolderListener() {
+            @Override
+            public void onCardMarked(Card card) {
+                Toast.makeText(CardPlayedHolder.this.getContext(), card.name, Toast.LENGTH_LONG).show();
+            }
+        };
+    }
     public interface OnCardHolderListener{
 
+        void onCardMarked(Card card);
     }
 
 }
