@@ -72,13 +72,11 @@ public class ArenaDeck extends RelativeLayout {
 
     private void setupView() {
 
-        rootView = inflate(getContext(), R.layout.deck_arena_layout, null);
-        rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        addView(rootView);
+        inflate(getContext(), R.layout.deck_arena_layout, this);
 
-        deckView = (DeckView) rootView.findViewById(R.id.dvDeck);
-        llCurrentCards = (LinearLayout) rootView.findViewById(R.id.llCurrentCards);
-        llArenaCards = (LinearLayout) rootView.findViewById(R.id.llArenaCards);
+        deckView = (DeckView) findViewById(R.id.dvDeck);
+        llCurrentCards = (LinearLayout) findViewById(R.id.llCurrentCards);
+        llArenaCards = (LinearLayout) findViewById(R.id.llArenaCards);
 
     }
 
@@ -114,8 +112,6 @@ public class ArenaDeck extends RelativeLayout {
 
     public void moveCardToArena(Card card,View cardView) {
         llCurrentCards.removeView(cardView);
-
-        //TODO: arena formatted card
         llArenaCards.addView(cardView);
 
         addCardToArena(card);
@@ -129,6 +125,11 @@ public class ArenaDeck extends RelativeLayout {
     private void addCardToArena(Card card) {
 
         final GameCard gameCard = new GameCard(getContext());
+        int width = getContext().getResources().getDimensionPixelSize(R.dimen.card_width);
+        int height = getContext().getResources().getDimensionPixelSize(R.dimen.card_height);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width,height);
+        params.width = width;
+        params.height = width;
 
         gameCard.buildCard(card);
         gameCard.setOnClickListener(new OnClickListener() {
