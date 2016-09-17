@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/history_row_height"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:layout_marginBottom="10dp">
 
     <ImageView
         android:id="@+id/history_item_image"
@@ -15,8 +16,8 @@
 
     <com.etermax.borbotones.widget.CustomFontTextView
         android:id="@+id/history_item_title"
-        style="@style/MikadoRegular"
-        android:textSize="@dimen/friend_name_row_size"
+        style="@style/Grobold"
+        android:textSize="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"

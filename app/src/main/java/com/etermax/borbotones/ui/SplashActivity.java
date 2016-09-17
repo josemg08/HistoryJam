@@ -11,7 +11,7 @@ import com.etermax.borbotones.data.FriendParser;
 
 public class SplashActivity extends Activity implements Runnable {
 
-    private static final int SPLASH_DURATION = 500;
+    private static final int SPLASH_DURATION = 2500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

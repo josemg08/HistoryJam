@@ -26,6 +26,16 @@
     <color name="purple">#C9C6E4</color>
     <color name="purpleDark">#ADABCC</color>
 
+    <color name="buttonGreenLight">#74b78a</color>
+    <color name="buttonGreen">#42cb6f</color>
+    <color name="buttonGreenDark">#3aa15c</color>
+    <color name="buttonAquaLight">#80d7ce</color>
+    <color name="buttonAqua">#47cec0</color>
+    <color name="buttonAquaDark">#3aaeaf</color>
+    <color name="buttonBlueLight">#96d4e7</color>
+    <color name="buttonBlue">#4ec2e7</color>
+    <color name="buttonBlueDark">#3ba0d9</color>
+
     <!--.___ Card text colors __.-->
     <color name="red">#C93E44</color>
     <color name="green">#1C9660</color>
