@@ -30,7 +30,9 @@
     <LinearLayout
         android:id="@+id/cards_opponent"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="2dp"
+        android:gravity="top"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/deck_opponent"
         android:layout_toRightOf="@+id/avatar_opponent"
@@ -40,16 +42,12 @@
             android:id="@+id/card_opponent_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/distance_5"
-            android:layout_marginTop="@dimen/distance_5"
             android:layout_weight="1" />
 
         <com.etermax.borbotones.widget.GameCard
             android:id="@+id/card_opponent_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/distance_5"
-            android:layout_marginTop="@dimen/distance_5"
             android:layout_weight="1" />
 
 
@@ -57,8 +55,6 @@
             android:id="@+id/card_opponent_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/distance_5"
-            android:layout_marginTop="@dimen/distance_5"
             android:layout_weight="1" />
 
 
@@ -66,8 +62,6 @@
             android:id="@+id/card_opponent_4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/distance_5"
-            android:layout_marginTop="@dimen/distance_5"
             android:layout_weight="1" />
 
 
@@ -75,8 +69,6 @@
             android:id="@+id/card_opponent_5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/distance_5"
-            android:layout_marginTop="@dimen/distance_5"
             android:layout_weight="1" />
 
     </LinearLayout>
@@ -99,48 +91,39 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="20dp">
+            android:layout_marginBottom="@dimen/distance_10"
+            android:layout_marginTop="@dimen/distance_10"
+            android:weightSum="5">
 
             <com.etermax.borbotones.ui.CardPlayedHolder
                 android:id="@+id/card1_opponent_played"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/placeholder"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
 
             <com.etermax.borbotones.ui.CardPlayedHolder
                 android:id="@+id/card2_opponent_played"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/placeholder"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
 
             <com.etermax.borbotones.ui.CardPlayedHolder
                 android:id="@+id/card3_opponent_played"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/placeholder"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
 
             <com.etermax.borbotones.ui.CardPlayedHolder
                 android:id="@+id/card4_opponent_played"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/placeholder"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
 
             <com.etermax.borbotones.ui.CardPlayedHolder
                 android:id="@+id/card5_opponent_played"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/placeholder"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
 
         </LinearLayout>
 
@@ -149,48 +132,40 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="horizontal"
-            android:layout_marginLeft="20dp">
+            android:weightSum="5"
+            android:layout_marginTop="@dimen/distance_10"
+            android:layout_marginBottom="@dimen/distance_10"
+            android:orientation="horizontal">
 
             <com.etermax.borbotones.ui.CardPlayedHolder
                 android:id="@+id/card1_played"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/placeholder"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
 
             <com.etermax.borbotones.ui.CardPlayedHolder
                 android:id="@+id/card2_played"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/placeholder"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
 
             <com.etermax.borbotones.ui.CardPlayedHolder
                 android:id="@+id/card3_played"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/placeholder"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
 
             <com.etermax.borbotones.ui.CardPlayedHolder
                 android:id="@+id/card4_played"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/placeholder"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
 
             <com.etermax.borbotones.ui.CardPlayedHolder
                 android:id="@+id/card5_played"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/placeholder"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
         </LinearLayout>
 
     </LinearLayout>
@@ -222,20 +197,19 @@
     <LinearLayout
         android:id="@+id/cards_player"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="2dp"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/deck_player"
         android:layout_toRightOf="@+id/avatar_player"
         android:orientation="horizontal"
+        android:gravity="bottom"
         android:weightSum="5">
 
         <com.etermax.borbotones.widget.GameCard
             android:id="@+id/card_player_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-
-            android:layout_marginBottom="@dimen/distance_5"
-            android:layout_marginTop="@dimen/distance_5"
             android:layout_weight="1"
             custom:isFlipped="false" />
 
@@ -243,9 +217,6 @@
             android:id="@+id/card_player_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-
-            android:layout_marginBottom="@dimen/distance_5"
-            android:layout_marginTop="@dimen/distance_5"
             android:layout_weight="1"
             custom:isFlipped="false" />
 
@@ -254,9 +225,6 @@
             android:id="@+id/card_player_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-
-            android:layout_marginBottom="@dimen/distance_5"
-            android:layout_marginTop="@dimen/distance_5"
             android:layout_weight="1"
             custom:isFlipped="false" />
 
@@ -265,9 +233,6 @@
             android:id="@+id/card_player_4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-
-            android:layout_marginBottom="@dimen/distance_5"
-            android:layout_marginTop="@dimen/distance_5"
             android:layout_weight="1"
             custom:isFlipped="false" />
 
@@ -276,8 +241,6 @@
             android:id="@+id/card_player_5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/distance_5"
-            android:layout_marginTop="@dimen/distance_5"
             android:layout_weight="1"
             custom:isFlipped="false" />
 

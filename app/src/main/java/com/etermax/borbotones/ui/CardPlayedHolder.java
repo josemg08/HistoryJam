@@ -3,8 +3,10 @@ package com.etermax.borbotones.ui;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.etermax.borbotones.R;
@@ -16,7 +18,7 @@ import com.etermax.borbotones.model.Card;
  * __.
  */
 
-class CardPlayedHolder extends LinearLayout{
+class CardPlayedHolder extends RelativeLayout{
 
     Context context;
     private ImageView cardPlayedHolderImage;
@@ -51,6 +53,13 @@ class CardPlayedHolder extends LinearLayout{
     public void setCard(Card card){
         this.card = card;
         cardPlayedHolderImage.setImageDrawable(getResources().getDrawable(card.getResourceId()));
+    }
+
+    public Card consumeCard(){
+        Card card = this.card;
+        this.card = null;
+        cardPlayedHolderImage.setImageDrawable(getResources().getDrawable(R.drawable.placeholder));
+        return card;
     }
 
     public void setEmptySloth(){
