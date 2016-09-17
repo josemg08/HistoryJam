@@ -122,6 +122,7 @@ public class MatchActivity extends Activity {
         gameCardOpponent4 = (GameCard) findViewById(R.id.card_opponent_4);
         gameCardOpponent5 = (GameCard) findViewById(R.id.card_opponent_5);
 
+        bindListeners();
         setupGame();
     }
 
@@ -239,6 +240,7 @@ public class MatchActivity extends Activity {
                 Log.d(MatchActivity.class.getSimpleName(),"user JOINED");
             }
         });
+        gameMachine.startMatch(player,player2,true);
     }
 
     private void addcardtofirstSlot(int cardId, int playerId) {
@@ -246,6 +248,7 @@ public class MatchActivity extends Activity {
         for (GameCard gameCard: isOpponent? opponentGameCards:mineGameCards) {
             if (gameCard.getCard() == null){
                 gameCard.buildCard(deckDataSource.cardWithId(cardId),isOpponent);
+                return;
             }
         }
     }
