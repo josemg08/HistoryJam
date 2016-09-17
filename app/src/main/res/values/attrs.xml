@@ -4,4 +4,10 @@
     <declare-styleable name="TextViewFont">
         <attr name="font_custom" format="string"/>
     </declare-styleable>
+
+    <declare-styleable name="GameCard">
+        <attr name="isFlipped" format="boolean"/>
+    </declare-styleable>
+
+
 </resources>

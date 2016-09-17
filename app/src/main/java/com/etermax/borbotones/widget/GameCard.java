@@ -2,6 +2,7 @@ package com.etermax.borbotones.widget;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.transition.Fade;
@@ -21,10 +22,10 @@ import com.etermax.borbotones.model.Card;
  * @author juan on 16/09/16.
  */
 
-public class GameCard extends RelativeLayout {
+public class GameCard extends RelativeLayout implements View.OnClickListener {
 
 
-    private static final float RATIO = 16/9;
+    private static final float RATIO = 16 / 9;
     private boolean isFlipped = true;
     private RelativeLayout rlContainer;
     private ImageView ivCardBackgrond;
@@ -37,45 +38,48 @@ public class GameCard extends RelativeLayout {
     private int attack;
 
     private Card card;
-
+    private OnGameCardListener listener = getDummyListener();
     public Card getCard() {
         return card;
     }
 
     public GameCard(Context context) {
         super(context);
-        setupView();
+        setupView(null);
     }
 
     public GameCard(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setupView();
+        setupView(attrs);
     }
 
     public GameCard(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        setupView();
+        setupView(attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public GameCard(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        setupView();
+        setupView(attrs);
     }
 
-    private void setupView() {
+    private void setupView(AttributeSet attrs) {
 
         inflate(getContext(), R.layout.gamecard_layout, this);
-
         rlContainer = (RelativeLayout) findViewById(R.id.rlContainer);
         ivCardBackgrond = (ImageView) findViewById(R.id.ivCardBackground);
         ivFlippedBackground = (ImageView) findViewById(R.id.ivFlippedBackground);
         tvAttack = (TextView) findViewById(R.id.tvAttackPoints);
         tvLife = (TextView) findViewById(R.id.tvLifePoints);
-
-
         isFlipped = true;
-        rlContainer.setVisibility(GONE);
+        if (attrs != null) {
+            TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.GameCard);
+            isFlipped = a.getBoolean(R.styleable.GameCard_isFlipped, true);
+            a.recycle();
+        }
+        setOnClickListener(this);
+        updateUI();
     }
 
     public void buildCard(Card card) {
@@ -100,21 +104,56 @@ public class GameCard extends RelativeLayout {
     }
 
     private void updateUI() {
-        flip();
+//        flip();
+        updateCard();
         updateLifeUI();
         updateAttackUI();
     }
 
+    private void updateCard() {
+        ivFlippedBackground.setVisibility(isFlipped ? VISIBLE : GONE);
+        ivCardBackgrond.setVisibility(!isFlipped ? VISIBLE : GONE);
+    }
+
     private void updateAttackUI() {
-        tvAttack.setText("A:"+attack);
+        tvAttack.setText("A:" + attack);
     }
 
     private void updateLifeUI() {
-        tvLife.setText("V:"+life);
+        tvLife.setText("V:" + life);
     }
 
     public void animateAttackAndUpdateLife(int updatedLife) {
         life = Math.max(updatedLife, 0);
         updateLifeUI();
     }
+
+    public void setGameCardListener(OnGameCardListener listener) {
+        this.listener = listener;
+    }
+
+    @Override
+    public void onClick(View v) {
+//        && card!=null
+        if(!isFlipped ){
+            ivCardBackgrond.setVisibility(INVISIBLE);
+            ivFlippedBackground.setVisibility(INVISIBLE);
+            listener.onCardConsume(card);
+            card = null;
+        }
+    }
+
+
+    private OnGameCardListener getDummyListener(){
+        return new OnGameCardListener() {
+            @Override
+            public void onCardConsume(Card card) {
+
+            }
+        };
+    }
+    public  interface OnGameCardListener{
+        void onCardConsume(Card card);
+    }
+
 }
