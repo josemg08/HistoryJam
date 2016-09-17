@@ -1,7 +1,6 @@
 package com.etermax.borbotones.ui;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.etermax.borbotones.R;
@@ -15,21 +14,27 @@ public class MatchActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_match);
+        setContentView(R.layout.activity_table);
 
-        mineDeck = (ArenaDeck) findViewById(R.id.adMineDeck);
+        try {
+            mineDeck = (ArenaDeck) findViewById(R.id.adMineDeck);
 
 
-        Player player = new Player();
-        player.name = "dummyName";
-        player.life = 1000;
+            Player player = new Player();
+            player.name = "dummyName";
+            player.life = 1000;
 
-        Deck randomDeck = new Deck();
+            Deck randomDeck = new Deck();
 
-        for (int i = 0; i < 15; i++) {
-            randomDeck.cards.add(com.etermax.borbotones.data.Deck.getInstance().getRandomCard());
-        }
+            for (int i = 0; i < 15; i++) {
+                randomDeck.cards.add(com.etermax.borbotones.data.Deck.getInstance().getRandomCard());
+            }
 //
-        mineDeck.buildArena(player, randomDeck);
+            mineDeck.buildArena(player, randomDeck);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            //bite me
+        }
     }
 }
