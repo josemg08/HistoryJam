@@ -54,9 +54,13 @@ public class MatchActivity extends Activity {
 
         playerStatus      = (PlayerStatusWidget) findViewById(R.id.avatar_player);
         playerStatus.setName("Vasili");
+        playerStatus.setEnergy(10);
+        playerStatus.setLevel(123);
+        playerStatus.setGender(false);
         opponentStatus    = (PlayerStatusWidget) findViewById(R.id.avatar_opponent);
-
-        playerStatus.build(new Player());
+        opponentStatus.setName("Pavlichenko");
+        opponentStatus.setEnergy(194);
+        opponentStatus.setGender(true);
 
         playerCard1Played = (CardPlayedHolder) findViewById(R.id.card1_played);
         playerCard2Played = (CardPlayedHolder) findViewById(R.id.card2_played);

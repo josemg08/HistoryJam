@@ -2,10 +2,10 @@ package com.etermax.borbotones.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.etermax.borbotones.R;
-import com.etermax.borbotones.core.Player;
 
 public class PlayerStatusWidget extends RelativeLayout {
 
@@ -41,19 +41,18 @@ public class PlayerStatusWidget extends RelativeLayout {
         mPlayerName.setText(name);
     }
 
-    public void setEnergy(int available, int total)
+    public void setGender(boolean isFemale)
     {
-        mEnergy.setText(available + "/" + total );
+        ((ImageView)findViewById(R.id.avatar)).setImageDrawable(isFemale ? getResources().getDrawable(R.drawable.avatar_m) : getResources().getDrawable(R.drawable.avatar_h));
+    }
+
+    public void setEnergy(int energy)
+    {
+        mEnergy.setText(Integer.toString(energy));
     }
 
     public void setLevel(int level)
     {
-        mEnergy.setText(Integer.toString(level) );
-    }
-
-    public void build(Player player) {
-        //mPlayer = player;
-        //mPlayerName.setText(player.name);
-        //mEnergy.setText(player.life);
+        mLevel.setText(Integer.toString(level) );
     }
 }
