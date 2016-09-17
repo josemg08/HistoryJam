@@ -30,6 +30,12 @@ class CardPlayedHolder extends RelativeLayout implements View.OnClickListener{
     View selectorView;
     private boolean selected = false;
 
+    public void setHolderOpponentListener(OnCardHolderOpponent holderOpponentListener) {
+        this.holderOpponentListener = holderOpponentListener;
+    }
+
+    private OnCardHolderOpponent holderOpponentListener;
+
     public void setHolderListener(OnCardHolderListener holderListener) {
         this.holderListener = holderListener;
     }
@@ -101,7 +107,10 @@ class CardPlayedHolder extends RelativeLayout implements View.OnClickListener{
         if(card !=null && !selected){
             selected = true;
             selectorView.setVisibility(VISIBLE);
-            holderListener.onCardMarked(card);
+            holderListener.onCardMarked(card, this);
+        }
+        if(holderOpponentListener!=null && card!=null){
+            holderOpponentListener.onCardAttacked(card, this);
         }
     }
 
@@ -109,14 +118,18 @@ class CardPlayedHolder extends RelativeLayout implements View.OnClickListener{
     private OnCardHolderListener getDummyListener(){
         return new OnCardHolderListener() {
             @Override
-            public void onCardMarked(Card card) {
+            public void onCardMarked(Card card, View view) {
                 Toast.makeText(CardPlayedHolder.this.getContext(), card.name, Toast.LENGTH_LONG).show();
             }
         };
     }
     public interface OnCardHolderListener{
 
-        void onCardMarked(Card card);
+        void onCardMarked(Card card, View view);
+    }
+
+    public interface  OnCardHolderOpponent{
+        void onCardAttacked(Card card, View view);
     }
 
 }

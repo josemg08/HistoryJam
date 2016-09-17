@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.etermax.borbotones.R;
 import com.etermax.borbotones.core.Deck;
@@ -17,7 +18,7 @@ import com.etermax.borbotones.widget.PlayerStatusWidget;
 
 import java.util.ArrayList;
 
-public class MatchActivity extends Activity {
+public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardHolderOpponent,CardPlayedHolder.OnCardHolderListener{
 
     CardPlayedHolder playerCard1Played;
     CardPlayedHolder playerCard2Played;
@@ -55,6 +56,9 @@ public class MatchActivity extends Activity {
     Player player;
     Player player2;
     com.etermax.borbotones.data.Deck deckDataSource;
+    private int currentTurn =0;
+    private boolean myTurn = false;
+    private int attacks = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,17 +130,23 @@ public class MatchActivity extends Activity {
         gameCardPlayer4 = (GameCard) findViewById(R.id.card_player_4);
         gameCardPlayer5 = (GameCard) findViewById(R.id.card_player_5);
 
+        gameCardOpponent1 = (GameCard) findViewById(R.id.card_opponent_1);
+        gameCardOpponent2 = (GameCard) findViewById(R.id.card_opponent_2);
+        gameCardOpponent3 = (GameCard) findViewById(R.id.card_opponent_3);
+        gameCardOpponent4 = (GameCard) findViewById(R.id.card_opponent_4);
+        gameCardOpponent5 = (GameCard) findViewById(R.id.card_opponent_5);
+
         mineGameCards.add(gameCardPlayer1);
         mineGameCards.add(gameCardPlayer2);
         mineGameCards.add(gameCardPlayer3);
         mineGameCards.add(gameCardPlayer4);
         mineGameCards.add(gameCardPlayer5);
 
-        opponentGameCards.add(gameCardPlayer1);
-        opponentGameCards.add(gameCardPlayer2);
-        opponentGameCards.add(gameCardPlayer3);
-        opponentGameCards.add(gameCardPlayer4);
-        opponentGameCards.add(gameCardPlayer5);
+        opponentGameCards.add(gameCardOpponent1);
+        opponentGameCards.add(gameCardOpponent2);
+        opponentGameCards.add(gameCardOpponent3);
+        opponentGameCards.add(gameCardOpponent4);
+        opponentGameCards.add(gameCardOpponent5);
 
         gameCardOpponent1 = (GameCard) findViewById(R.id.card_opponent_1);
         gameCardOpponent2 = (GameCard) findViewById(R.id.card_opponent_2);
@@ -159,7 +169,11 @@ public class MatchActivity extends Activity {
             gamecard.setGameCardListener(new GameCard.OnGameCardListener() {
                 @Override
                 public void onCardConsume(Card card) {
-                    gameMachine.placeMyCard(card.id);
+                    try{
+                        gameMachine.placeMyCard(card.id);
+                    }catch (Exception e){
+
+                    }
                 }
             });
         }
@@ -168,7 +182,9 @@ public class MatchActivity extends Activity {
         mineDeck.setOnDeckListener(new DeckView.OnDeckListener() {
             @Override
             public void onCardSelected(Card card) {
-                 addcardtofirstSlot(card.id,player.id);
+                if(myTurn) {
+                    addcardtofirstSlot(card.id, player.id);
+                }
             }
 
             @Override
@@ -176,6 +192,11 @@ public class MatchActivity extends Activity {
 
             }
         });
+    }
+
+    private void botattack(){
+        gameMachine.receiveUserAttack(gameMachine.playerLife() -100,player.id);
+        playerStatus.setEnergy(gameMachine.playerLife());
     }
 
     private void setupGame(){
@@ -196,7 +217,8 @@ public class MatchActivity extends Activity {
         findViewById(R.id.attack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameMachine.receiveUserAttack(player.life -100,player.id);
+                gameMachine.receiveUserAttack(gameMachine.playerLife() -100,player.id);
+                playerStatus.setEnergy(gameMachine.playerLife());
             }
         });
 
@@ -204,7 +226,12 @@ public class MatchActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Card card = gameMachine.getArenaCards(player2.id).get(0);
-                gameMachine.receiveUserAttack(card.attack,player.id);
+                int value = card.defense -10;
+
+                gameMachine.receiveCardAttack(card.defense-10,card.id,player.id);
+                if (value<=0) {
+                   opponentCard1Played.setCard(null);
+                }
             }
         });
 
@@ -253,6 +280,27 @@ public class MatchActivity extends Activity {
             @Override
             public void turnChanged(int playerId) {
                 Log.d(MatchActivity.class.getSimpleName(),"TURN CHANGED");
+                if(playerId == player2.id){
+                    myTurn = false;
+                    if(gameMachine.getCurrentCards(player2.id).size() == 0){
+//                        addcardtofirstSlot(opponentDeck.consumeCards(1).get(0).id,playerId);
+                        gameMachine.pickCard(player2.id);
+                    }
+                    if(gameMachine.getArenaCards(player2.id).size() == 0){
+
+                        currentCard = gameMachine.getCurrentCards(player2.id).get(0);
+                        opponentCard1Played.setCard(currentCard);
+                        gameCardForUserAndCard(currentCard.id,player2.id).hide();
+                        gameMachine.placeCard(currentCard.id,player2.id);
+
+                        botattack();
+                        gameMachine.endTurn();
+                    }
+                }else {
+                    currentTurn ++;
+                    myTurn = true;
+
+                }
             }
 
             @Override
@@ -265,10 +313,14 @@ public class MatchActivity extends Activity {
                 Log.d(MatchActivity.class.getSimpleName(),"user JOINED");
             }
         });
+        manageFight();
         gameMachine.startMatch(player,player2,true);
     }
 
     private void addcardtofirstSlot(int cardId, int playerId) {
+        if(gameMachine.getCurrentCards(playerId).size()>=5){
+            return;
+        }
         boolean isOpponent = playerId != player.id;
         for (GameCard gameCard: isOpponent? opponentGameCards:mineGameCards) {
             if (gameCard.getCard() != null){
@@ -281,7 +333,9 @@ public class MatchActivity extends Activity {
 
     private GameCard gameCardForUserAndCard(int cardId,int playerId){
         for (GameCard gameCard: playerId == player.id ?mineGameCards:opponentGameCards) {
-            if (gameCard.getCard().id == cardId){
+            if( gameCard.getCard() == null ){
+
+            }else if(gameCard.getCard().id == cardId){
                 return gameCard;
             }
         }
@@ -295,5 +349,55 @@ public class MatchActivity extends Activity {
               }
         }
         return null;
+    }
+
+
+    private void manageFight(){
+
+        playerCard1Played.setHolderListener(this);
+        playerCard2Played.setHolderListener(this);
+        playerCard3Played.setHolderListener(this);
+        playerCard4Played.setHolderListener(this);
+        playerCard5Played.setHolderListener(this);
+
+        opponentCard1Played.setHolderOpponentListener(this);
+        opponentCard2Played.setHolderOpponentListener(this);
+        opponentCard3Played.setHolderOpponentListener(this);
+        opponentCard4Played.setHolderOpponentListener(this);
+        opponentCard5Played.setHolderOpponentListener(this);
+        opponentStatus.setOpponentListener(new PlayerStatusWidget.OnAvatarOpponentListener() {
+            @Override
+            public void onAttackAvatar() {
+                if(onCardPlayerSelected && cardSelected!=null){
+                    gameMachine.attackPlayer(cardSelected.attack);
+                    onCardPlayerSelected = false;
+                    cardSelected = null;
+                }
+            }
+        });
+    }
+
+    private boolean onCardPlayerSelected = false;
+    private Card cardSelected = null;
+
+
+    @Override
+    public void onCardAttacked(Card card, View view) {
+        if(onCardPlayerSelected && cardSelected!=null){
+            gameMachine.attackCard(cardSelected.attack, card.id);
+            onCardPlayerSelected = false;
+            cardSelected = null;
+            Toast.makeText(this, "onCardAttacked " +card.name, Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    @Override
+    public void onCardMarked(Card card, View view) {
+        if(!onCardPlayerSelected) {
+            Toast.makeText(this, "onCardMarked " +card.name, Toast.LENGTH_SHORT).show();
+            onCardPlayerSelected = true;
+            cardSelected = card;
+        }
     }
 }

@@ -91,6 +91,7 @@
                     android:layout_below="@id/card_image"
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
+                    style="@style/MikadoRegular"
                     android:textColor="@color/blueVeryDark"
                     android:text="Sigmund Freuda (Príbor, 6 de mayo de 1856-Londres, 23 de septiembre de 1939) fue un médico neurólogo austriaco de origen judío, padre del psicoanálisis y una de las mayores figuras intelectuales del siglo XX.1
 Su interés científico inicial como investigador se centró en el campo de la neurología, derivando progresivamente hacia la vertiente psicológica de las afecciones mentales, investigaciones de las que daría cuenta en la casuística de su consultorio privado. Estudió en París, con el neurólogo francés Jean-Martin Charcot, las aplicaciones de la hipnosis en el tratamiento de la histeria. De vuelta a la ciudad de Viena y en colaboración con Josef Breuer desarrolló el método catártico."/>
