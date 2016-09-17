@@ -1,13 +1,9 @@
 package com.etermax.borbotones.ui;
 
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.etermax.borbotones.R;
 import com.etermax.borbotones.model.HistoryEvent;
 import com.etermax.borbotones.widget.HistoryRowView;
 
@@ -45,8 +41,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
 
     // Create new views (invoked by the layout manager)
     @Override
-    public HistoryListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                       int viewType) {
+    public HistoryListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(HistoryRowView.build(parent.getContext()));
