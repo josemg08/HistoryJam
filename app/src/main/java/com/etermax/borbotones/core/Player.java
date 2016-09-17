@@ -7,7 +7,7 @@ package com.etermax.borbotones.core;
 public class Player {
 
     public String name;
-    public String id;
+    public int id;
     public int life;
     public Deck deck;
 }
