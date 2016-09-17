@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <!-- Opponent -->
+
+    <FrameLayout
+        android:id="@+id/deck_opponent"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/aqua">
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/cards_opponent"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/deck_opponent"
+        android:layout_toRightOf="@+id/avatar_opponent"
+        android:orientation="horizontal"></LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/avatar_opponent"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/aqua">
+
+    </FrameLayout>
+
+
+    <!-- Tablero-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/cards_player"
+        android:layout_below="@+id/cards_opponent"
+        android:background="@color/colorAccent"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:id="@+id/slots_game_opponent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/slots_game_player"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!-- Player-->
+
+    <FrameLayout
+        android:id="@+id/avatar_player"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@color/aqua">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/deck_player"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/aqua">
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/cards_player"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/deck_player"
+        android:layout_toRightOf="@+id/avatar_player"
+        android:orientation="horizontal">
+
+
+    </LinearLayout>
+
+</RelativeLayout>
