@@ -104,9 +104,9 @@ public class FriendListActivity extends Activity {
     }
 
     private void startGame(Friend friend){
-        //TODO Inicializar la partida
-        Toast.makeText(this, friend.name, Toast.LENGTH_SHORT).show();
-
+        Intent intent = new Intent(getApplicationContext(), MatchActivity.class);
+        startActivity(intent);
+        //Toast.makeText(this, friend.name, Toast.LENGTH_SHORT).show();
     }
 
 }

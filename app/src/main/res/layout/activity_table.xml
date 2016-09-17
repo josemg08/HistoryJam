@@ -36,16 +36,17 @@
 
     </FrameLayout>
 
-
     <!-- Tablero-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/cards_player"
         android:layout_below="@+id/cards_opponent"
-        android:background="@color/colorAccent"
+        android:background="@drawable/cloth"
         android:orientation="vertical"
-        android:weightSum="2">
+        android:weightSum="2"
+        android:layout_marginLeft="@dimen/distance_50"
+        android:layout_marginRight="@dimen/distance_50">
 
         <LinearLayout
             android:id="@+id/slots_game_opponent"
