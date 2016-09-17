@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+        <include layout="@layout/deck_arena_layout"/>
+        <include layout="@layout/deck_arena_layout"/>
+
+    </LinearLayout>
+
+    <com.etermax.borbotones.widget.GameCard
+        android:layout_width="35dp"
+        android:layout_height="50dp"
+        android:background="#ff0000"
+        android:layout_gravity="bottom|right"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp">
+    </com.etermax.borbotones.widget.GameCard>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#00ff00"
+        android:layout_gravity="bottom"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="10dp"/>
+</RelativeLayout>

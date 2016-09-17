@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class Deck {
 
-    List<Card> deckList;
+    public List<Card> deckList;
 
     private static Deck instance;
 

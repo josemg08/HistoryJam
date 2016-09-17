@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/avatar_h"/>
+
+        <com.etermax.borbotones.widget.CustomFontTextView
+            android:id="@+id/cftvPlayerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PlayerName"
+            android:textSize="15dp"
+            style="@style/MikadoBlack"/>
+
+    <com.etermax.borbotones.widget.CustomFontTextView
+        android:layout_below="@+id/cftvPlayerName"
+        android:id="@+id/cftvPlayerLife"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1000/1000"
+        android:textSize="15dp"
+        style="@style/MikadoBlack"/>
+</RelativeLayout>
