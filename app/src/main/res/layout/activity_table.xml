@@ -66,6 +66,7 @@
             android:layout_marginLeft="20dp">
 
             <com.etermax.borbotones.ui.CardPlayedHolder
+                android:id="@+id/card1_opponent_played"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/placeholder"
@@ -73,6 +74,7 @@
                 android:layout_marginLeft="10dp"/>
 
             <com.etermax.borbotones.ui.CardPlayedHolder
+                android:id="@+id/card2_opponent_played"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/placeholder"
@@ -80,6 +82,7 @@
                 android:layout_marginLeft="10dp"/>
 
             <com.etermax.borbotones.ui.CardPlayedHolder
+                android:id="@+id/card3_opponent_played"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/placeholder"
@@ -87,6 +90,7 @@
                 android:layout_marginLeft="10dp"/>
 
             <com.etermax.borbotones.ui.CardPlayedHolder
+                android:id="@+id/card4_opponent_played"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/placeholder"
@@ -94,6 +98,7 @@
                 android:layout_marginLeft="10dp"/>
 
             <com.etermax.borbotones.ui.CardPlayedHolder
+                android:id="@+id/card5_opponent_played"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/placeholder"
@@ -111,6 +116,7 @@
             android:layout_marginLeft="20dp">
 
             <com.etermax.borbotones.ui.CardPlayedHolder
+                android:id="@+id/card1_played"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/placeholder"
@@ -118,6 +124,7 @@
                 android:layout_marginLeft="10dp"/>
 
             <com.etermax.borbotones.ui.CardPlayedHolder
+                android:id="@+id/card2_played"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/placeholder"
@@ -125,6 +132,7 @@
                 android:layout_marginLeft="10dp"/>
 
             <com.etermax.borbotones.ui.CardPlayedHolder
+                android:id="@+id/card3_played"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/placeholder"
@@ -132,6 +140,7 @@
                 android:layout_marginLeft="10dp"/>
 
             <com.etermax.borbotones.ui.CardPlayedHolder
+                android:id="@+id/card4_played"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/placeholder"
@@ -139,6 +148,7 @@
                 android:layout_marginLeft="10dp"/>
 
             <com.etermax.borbotones.ui.CardPlayedHolder
+                android:id="@+id/card5_played"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/placeholder"

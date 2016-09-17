@@ -10,6 +10,17 @@ import com.etermax.borbotones.widget.ArenaDeck;
 
 public class MatchActivity extends Activity {
 
+    CardPlayedHolder playerCard1Played;
+    CardPlayedHolder playerCard2Played;
+    CardPlayedHolder playerCard3Played;
+    CardPlayedHolder playerCard4Played;
+    CardPlayedHolder playerCard5Played;
+    CardPlayedHolder opponentCard1Played;
+    CardPlayedHolder opponentCard2Played;
+    CardPlayedHolder opponentCard3Played;
+    CardPlayedHolder opponentCard4Played;
+    CardPlayedHolder opponentCard5Played;
+
     ArenaDeck mineDeck;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,5 +47,16 @@ public class MatchActivity extends Activity {
             e.printStackTrace();
             //bite me
         }
+
+        playerCard1Played = (CardPlayedHolder) findViewById(R.id.card1_played);
+        playerCard2Played = (CardPlayedHolder) findViewById(R.id.card2_played);
+        playerCard3Played = (CardPlayedHolder) findViewById(R.id.card3_played);
+        playerCard4Played = (CardPlayedHolder) findViewById(R.id.card4_played);
+        playerCard5Played = (CardPlayedHolder) findViewById(R.id.card5_played);
+        opponentCard1Played = (CardPlayedHolder) findViewById(R.id.card1_opponent_played);
+        opponentCard2Played = (CardPlayedHolder) findViewById(R.id.card2_opponent_played);
+        opponentCard3Played = (CardPlayedHolder) findViewById(R.id.card3_opponent_played);
+        opponentCard4Played = (CardPlayedHolder) findViewById(R.id.card4_opponent_played);
+        opponentCard5Played = (CardPlayedHolder) findViewById(R.id.card5_opponent_played);
     }
 }
