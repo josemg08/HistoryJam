@@ -51,7 +51,12 @@ class CardPlayedHolder extends RelativeLayout{
     }
 
     public void setCard(Card card){
+        if(card== null){
+            cardPlayedHolderImage.setVisibility(INVISIBLE);
+            return;
+        }
         this.card = card;
+        cardPlayedHolderImage.setVisibility(VISIBLE);
         cardPlayedHolderImage.setImageDrawable(getResources().getDrawable(card.getResourceId()));
     }
 
@@ -59,6 +64,10 @@ class CardPlayedHolder extends RelativeLayout{
         Card card = this.card;
         this.card = null;
         cardPlayedHolderImage.setImageDrawable(getResources().getDrawable(R.drawable.placeholder));
+        return card;
+    }
+
+    public Card getCard(){
         return card;
     }
 
