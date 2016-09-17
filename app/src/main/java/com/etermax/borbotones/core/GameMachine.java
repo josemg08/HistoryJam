@@ -208,6 +208,14 @@ public class GameMachine {
         reduceCardLife(attackPoint,cardId,opponent.id);
     }
 
+    public int opponentLife(){
+        return opponent.life;
+    }
+
+    public int playerLife(){
+        return player.life;
+    }
+
     private void reduceCardLife(int attackPoint, int cardId, int playerId) {
 
         List<Card> cards = getArenaCards(playerId);
