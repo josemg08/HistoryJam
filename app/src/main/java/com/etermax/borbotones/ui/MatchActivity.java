@@ -366,7 +366,6 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
             onCardPlayerSelected = false;
             cardSelected = null;
             Toast.makeText(this, "onCardAttacked " +card.name, Toast.LENGTH_SHORT).show();
-
         }
 
     }
