@@ -62,7 +62,7 @@ public class GameMachine {
     private Player opponent;
 
 
-    private int currentPlayerId = 0;
+    private int currentPlayerId = 1;
     private boolean isAdmin;
 
     private LinkedList<Card> playerOneDeck = new LinkedList<>();

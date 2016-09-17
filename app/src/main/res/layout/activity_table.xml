@@ -301,4 +301,34 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="attackPlayer"
+            android:id="@+id/attack"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="attack card"
+            android:id="@+id/attackCard"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pick card"
+            android:id="@+id/pickCard"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="place card"
+            android:id="@+id/placeCard"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="end my turn"
+            android:id="@+id/endTurn"/>
+    </LinearLayout>
+
 </RelativeLayout>

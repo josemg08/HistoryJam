@@ -49,9 +49,19 @@ class CardPlayedHolder extends LinearLayout{
     }
 
     public void setCard(Card card){
+        if(card== null){
+            cardPlayedHolderImage.setVisibility(INVISIBLE);
+            return;
+        }
         this.card = card;
+        cardPlayedHolderImage.setVisibility(VISIBLE);
         cardPlayedHolderImage.setImageDrawable(getResources().getDrawable(card.getResourceId()));
     }
+
+    public Card getCard(){
+        return card;
+    }
+
 
     public void setEmptySloth(){
         card = null;

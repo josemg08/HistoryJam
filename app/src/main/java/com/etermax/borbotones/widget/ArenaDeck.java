@@ -92,7 +92,7 @@ public class ArenaDeck extends RelativeLayout {
 
             final GameCard gameCard = new GameCard(getContext());
 
-            gameCard.buildCard(card);
+            gameCard.buildCard(card,true);
             gameCard.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -131,7 +131,7 @@ public class ArenaDeck extends RelativeLayout {
         params.width = width;
         params.height = width;
 
-        gameCard.buildCard(card);
+        gameCard.buildCard(card,true);
         gameCard.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

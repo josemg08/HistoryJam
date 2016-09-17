@@ -33,6 +33,7 @@ public class GameCard extends RelativeLayout implements View.OnClickListener {
     private TextView tvAttack;
     private TextView tvLife;
     private View rootView;
+    private boolean isOpponent;
 
     private int life;
     private int attack;
@@ -82,7 +83,8 @@ public class GameCard extends RelativeLayout implements View.OnClickListener {
         updateUI();
     }
 
-    public void buildCard(Card card) {
+    public void buildCard(Card card, boolean isOpponent) {
+        this.isOpponent = isOpponent;
         this.card = card;
 
         life = card.defense;
@@ -104,15 +106,16 @@ public class GameCard extends RelativeLayout implements View.OnClickListener {
     }
 
     private void updateUI() {
-//        flip();
         updateCard();
         updateLifeUI();
         updateAttackUI();
     }
 
     private void updateCard() {
-        ivFlippedBackground.setVisibility(isFlipped ? VISIBLE : GONE);
-        ivCardBackgrond.setVisibility(!isFlipped ? VISIBLE : GONE);
+        ivFlippedBackground.setVisibility(isFlipped || card == null ? VISIBLE : GONE);
+        if(!isOpponent){
+            ivCardBackgrond.setVisibility(!isFlipped && card != null ? VISIBLE : GONE);
+        }
     }
 
     private void updateAttackUI() {
@@ -143,6 +146,11 @@ public class GameCard extends RelativeLayout implements View.OnClickListener {
         }
     }
 
+    public void hide(){
+        ivCardBackgrond.setVisibility(INVISIBLE);
+        ivFlippedBackground.setVisibility(INVISIBLE);
+        card = null;
+    }
 
     private OnGameCardListener getDummyListener(){
         return new OnGameCardListener() {
