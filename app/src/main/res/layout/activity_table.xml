@@ -89,7 +89,6 @@
         android:layout_below="@+id/cards_opponent"
         android:layout_marginLeft="@dimen/distance_50"
         android:layout_marginRight="@dimen/distance_50"
-        android:background="@drawable/cloth"
         android:orientation="vertical"
         android:weightSum="2">
 
