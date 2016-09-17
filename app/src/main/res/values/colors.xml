@@ -8,6 +8,7 @@
 
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="black_80">#80000000</color>
 
     <!--.___ Card colors __.-->
     <color name="blue">#78BDCC</color>

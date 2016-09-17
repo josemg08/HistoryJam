@@ -30,7 +30,7 @@ public class CardInformationActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mode_selection_layout);
+        setContentView(R.layout.card_information_layout);
 
         Intent intent = getIntent();
         Card card = (Card) intent.getSerializableExtra(CARD_KEY);
@@ -49,8 +49,8 @@ public class CardInformationActivity extends Activity {
         mImageView.setImageDrawable(getResources().getDrawable(card.getResourceId()));
         mCardTitle.setText(card.name);
         mCardType.setText(card.type.getCardTypeName());
-        mCardAttack.setText(card.attack);
-        mCardDefence.setText(card.defense);
+        mCardAttack.setText(Integer.toString(card.attack) );
+        mCardDefence.setText(Integer.toString(card.defense) );
         mCardDescription.setText(card.description);
     }
 

@@ -2,27 +2,43 @@ package com.etermax.borbotones.widget;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
+import com.etermax.borbotones.R;
 import com.etermax.borbotones.model.Card;
 import com.etermax.borbotones.ui.CardInformationActivity;
 
-public class CardView extends ImageView implements View.OnClickListener{
+public class CardView extends RelativeLayout implements View.OnClickListener{
+
+    ImageView cardImageView;
+    View      enabledView;
 
     Card mCard;
 
     public CardView(Context context) {
         super(context);
+        inflate(getContext(), R.layout.card_view, this);
         setOnClickListener(this);
+        cardImageView = (ImageView)findViewById(R.id.card_image);
+        enabledView = findViewById(R.id.enabled);
     }
 
-    public void setCard( Card card ) {
+    public void setCard( Card card )
+    {
         mCard = card;
-        //setBackgroundColor( mCard.type.getColor() );
-        Glide.with(getContext()).load(mCard.getResourceId()).into(this);
+        Glide.with(getContext()).load(mCard.getResourceId()).into(cardImageView);
+    }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int width = MeasureSpec.getSize(widthMeasureSpec);
+        int height = width * 735 / 505;
+        super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY ));
     }
 
     @Override
@@ -32,4 +48,9 @@ public class CardView extends ImageView implements View.OnClickListener{
         getContext().startActivity(intent);
     }
 
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+        findViewById(R.id.enabled).setEnabled(enabled);
+    }
 }

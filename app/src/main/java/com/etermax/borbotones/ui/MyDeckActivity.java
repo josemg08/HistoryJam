@@ -1,5 +1,6 @@
 package com.etermax.borbotones.ui;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 
+import com.bumptech.glide.Glide;
 import com.etermax.borbotones.R;
 import com.etermax.borbotones.data.Deck;
 import com.etermax.borbotones.model.Card;
@@ -25,6 +27,7 @@ public class MyDeckActivity extends Activity {
 
         GridView mGridView = (GridView) findViewById(R.id.my_deck_gridview);
         mGridView.setAdapter( new MyDeckAdapter(this) );
+
     }
 
     class MyDeckAdapter extends BaseAdapter {
@@ -74,6 +77,9 @@ public class MyDeckActivity extends Activity {
             }
 
             view.setCard( mCardList.get(position) );
+
+            if( position % 5 == 0 )
+                view.setEnabled(false);
             return view;
         }
     }
