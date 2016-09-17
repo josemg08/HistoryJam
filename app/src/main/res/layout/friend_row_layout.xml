@@ -7,20 +7,20 @@
     <ImageView
         android:id="@+id/avatar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_gravity="center_horizontal" />
 
     <com.etermax.borbotones.widget.CustomFontTextView
         android:id="@+id/name"
-        style="@style/MikadoRegular"
-        android:textSize="@dimen/friend_name_row_size"
+        style="@style/Grobold"
+        android:textSize="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_gravity="center_horizontal"
         android:layout_toRightOf="@id/avatar"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/white"
         android:text="Name" />
 </RelativeLayout>

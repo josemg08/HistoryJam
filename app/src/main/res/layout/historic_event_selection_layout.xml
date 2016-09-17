@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/historyevents_back">
+    android:background="@drawable/mydeck_background">
 
     <ImageView
-        android:layout_width="250dp"
+        android:layout_width="290dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:background="@drawable/history_title"/>
+        android:background="@drawable/history_title"
+        android:layout_marginTop="15dp"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/history_events_list"

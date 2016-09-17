@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.etermax.borbotones.R;
 import com.etermax.borbotones.model.Friend;
 
@@ -51,7 +52,8 @@ public class FriendRowView extends RelativeLayout {
     }
 
     public void loadData(Friend friend) {
-        setBackgroundResource(backgrounds[friend.id % backgrounds.length]);
+        Glide.with(getContext()).load(friend.getResourceId()).into(avatarImageView);
+        //setBackgroundResource(backgrounds[friend.id % backgrounds.length]);
         nameTextView.setText(friend.name);
 
     }
