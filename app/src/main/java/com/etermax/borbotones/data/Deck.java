@@ -54,6 +54,13 @@ public class Deck {
         return  deckList;
     }
 
+    public Card cardWithId(int id) {
+        for (Card card: deckList) {
+           if(card.id == id)
+               return card;
+        }
+        return null;
+    }
     public Card getRandomCard()
     {
         return deckList.get(new Random().nextInt(deckList.size()));
