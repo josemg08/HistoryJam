@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="Grobold">
+        <item name="font_custom">GROBOLD.ttf</item>
+    </style>
+
     <style name="MikadoRegular">
         <item name="font_custom">MikadoRegular.otf</item>
     </style>
