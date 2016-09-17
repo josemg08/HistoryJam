@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.etermax.borbotones.R;
 import com.etermax.borbotones.core.Deck;
@@ -17,7 +18,7 @@ import com.etermax.borbotones.widget.PlayerStatusWidget;
 
 import java.util.ArrayList;
 
-public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardHolderOpponent{
+public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardHolderOpponent,CardPlayedHolder.OnCardHolderListener{
 
     CardPlayedHolder playerCard1Played;
     CardPlayedHolder playerCard2Played;
@@ -300,15 +301,52 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
 
 
     private void manageFight(){
+
+        playerCard1Played.setHolderListener(this);
+        playerCard2Played.setHolderListener(this);
+        playerCard3Played.setHolderListener(this);
+        playerCard4Played.setHolderListener(this);
+        playerCard5Played.setHolderListener(this);
+
         opponentCard1Played.setHolderOpponentListener(this);
         opponentCard2Played.setHolderOpponentListener(this);
         opponentCard3Played.setHolderOpponentListener(this);
         opponentCard4Played.setHolderOpponentListener(this);
         opponentCard5Played.setHolderOpponentListener(this);
+        opponentStatus.setOpponentListener(new PlayerStatusWidget.OnAvatarOpponentListener() {
+            @Override
+            public void onAttackAvatar() {
+                if(onCardPlayerSelected && cardSelected!=null){
+                    gameMachine.attackPlayer(cardSelected.attack);
+                    onCardPlayerSelected = false;
+                    cardSelected = null;
+                }
+            }
+        });
     }
+
+    private boolean onCardPlayerSelected = false;
+    private Card cardSelected = null;
+
 
     @Override
     public void onCardAttacked(Card card, View view) {
+        if(onCardPlayerSelected && cardSelected!=null){
+            gameMachine.attackCard(cardSelected.attack, card.id);
+            onCardPlayerSelected = false;
+            cardSelected = null;
+            Toast.makeText(this, "onCardAttacked " +card.name, Toast.LENGTH_SHORT).show();
 
+        }
+
+    }
+
+    @Override
+    public void onCardMarked(Card card, View view) {
+        if(!onCardPlayerSelected) {
+            Toast.makeText(this, "onCardMarked " +card.name, Toast.LENGTH_SHORT).show();
+            onCardPlayerSelected = true;
+            cardSelected = card;
+        }
     }
 }
