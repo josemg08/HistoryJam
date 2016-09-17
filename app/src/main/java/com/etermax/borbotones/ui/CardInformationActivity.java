@@ -39,7 +39,7 @@ public class CardInformationActivity extends Activity {
         mCardTitle = (TextView) findViewById(R.id.card_title);
         mCardType = (TextView) findViewById(R.id.card_type);
         mCardAttack = (TextView) findViewById(R.id.card_attack);
-        mCardDefence = (TextView) findViewById(R.id.card_defence);
+        //TODO mCardDefence = (TextView) findViewById(R.id.card_defence);
         mCardDescription = (TextView) findViewById(R.id.card_description);
 
         setCardAttributes(card);
@@ -50,7 +50,7 @@ public class CardInformationActivity extends Activity {
         mCardTitle.setText(card.name);
         mCardType.setText(card.type.getCardTypeName());
         mCardAttack.setText(Integer.toString(card.attack) );
-        mCardDefence.setText(Integer.toString(card.defense) );
+        //TODO mCardDefence.setText(Integer.toString(card.defense) );
         mCardDescription.setText(card.description);
     }
 
