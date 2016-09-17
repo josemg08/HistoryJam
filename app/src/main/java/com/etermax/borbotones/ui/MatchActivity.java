@@ -7,6 +7,7 @@ import com.etermax.borbotones.R;
 import com.etermax.borbotones.core.Deck;
 import com.etermax.borbotones.core.Player;
 import com.etermax.borbotones.widget.ArenaDeck;
+import com.etermax.borbotones.widget.PlayerStatusWidget;
 
 public class MatchActivity extends Activity {
 
@@ -20,6 +21,9 @@ public class MatchActivity extends Activity {
     CardPlayedHolder opponentCard3Played;
     CardPlayedHolder opponentCard4Played;
     CardPlayedHolder opponentCard5Played;
+
+    PlayerStatusWidget playerStatus,opponentStatus;
+
 
     ArenaDeck mineDeck;
     @Override
@@ -47,6 +51,12 @@ public class MatchActivity extends Activity {
             e.printStackTrace();
             //bite me
         }
+
+        playerStatus      = (PlayerStatusWidget) findViewById(R.id.avatar_player);
+        playerStatus.setName("Vasili");
+        opponentStatus    = (PlayerStatusWidget) findViewById(R.id.avatar_opponent);
+
+        playerStatus.build(new Player());
 
         playerCard1Played = (CardPlayedHolder) findViewById(R.id.card1_played);
         playerCard2Played = (CardPlayedHolder) findViewById(R.id.card2_played);

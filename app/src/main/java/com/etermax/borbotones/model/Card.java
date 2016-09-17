@@ -49,5 +49,19 @@ public class Card implements Serializable {
         Resources resources = BorbotonesApplication.getContext().getResources();
         return resources.getIdentifier(resource, "drawable", BorbotonesApplication.getContext().getPackageName());
     }
+
+    public Card getCopy(){
+
+        Card copy = new Card();
+        copy.type = type;
+        copy.name = name;
+        copy.description = description;
+        copy.id = id;
+        copy.attack = attack;
+        copy.defense = defense;
+        copy.resource = resource;
+
+        return copy;
+    }
 }
 
