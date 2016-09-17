@@ -1,8 +1,6 @@
 package com.etermax.borbotones.widget;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -37,15 +35,10 @@ public class HistoryRowView extends LinearLayout{
         init();
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public HistoryRowView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init();
-    }
     private void init(){
         inflate(getContext(), R.layout.history_event_list_item, this);
-        titleTextView = (TextView) findViewById(R.id.history_item_title);
-        historyImageView = (ImageView) findViewById(R.id.history_item_image);
+        titleTextView    = (TextView) findViewById(R.id.history_item_title);
+        historyImageView = (ImageView) findViewById(R.id.history_item_background);
     }
 
     public void loadData(HistoryEvent event){

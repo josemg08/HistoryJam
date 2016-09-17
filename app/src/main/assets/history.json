@@ -1,38 +1,32 @@
 [
    {
       "id":"1",
-      "title":"Revolucion de mayo",
+      "title":"Revolucion rusa",
       "description":"La Revolución de Mayo fue una serie de acontecimientos revolucionarios ocurridos en mayo de 1810 en la ciudad de Buenos Aires, capital del Virreinato del Río de la Plata, dependiente del rey de España, y que tuvieron como consecuencia la destitución del virrey Baltasar Hidalgo de Cisneros y su reemplazo por la Primera Junta de gobierno.",
-      "resource":"history2"
+      "resource":"history1"
     },
     {
       "id":"2",
-      "title":"Las cruzadas",
+      "title":"Woodstock",
       "description":"Las Cruzadas fueron una serie de campañas militares impulsadas por el papa y llevadas a cabo por gran parte de la Europa latina cristiana, principalmente por la Francia de los Capetos y el Sacro Imperio Romano. Las cruzadas, con el objetivo específico inicial de restablecer el control cristiano sobre Tierra Santa, se libraron durante un período de casi doscientos años, entre 1099 y 1291. Más adelante, otras campañas en España y Europa Oriental, de las que algunas no vieron su final hasta el siglo XV, recibieron la misma calificación. Las cruzadas fueron sostenidas principalmente contra los musulmanes, aunque también contra los eslavos paganos, judíos, cristianos ortodoxos griegos y rusos, mongoles, cátaros, husitas, valdense, prusianos y contra enemigos políticos de los papas. Los cruzados tomaban votos y se les concedía indulgencia por los pecados del pasado.",
-      "resource":"history3"
+      "resource":"history2"
     },
     {
       "id":"3",
-      "title":"Revolucion industrial",
+      "title":"Programa espacial",
       "description":"La Revolución Industrial o Primera Revolución Industrial es el proceso de transformación económica, social y tecnológica que se inició en la segunda mitad del siglo XVIII en el Reino Unido, que se extendió unas décadas después a gran parte de Europa occidental y Norteamérica, y que concluyó entre 1820 y 1840.",
-      "resource":"history1"
+      "resource":"history3"
     },
   {
     "id":"4",
-    "title":"Revolucion francesa",
+    "title":"Juegos olimpicos",
     "description":"La Revolución francesa fue un conflicto social y político, con diversos periodos de violencia, que convulsionó Francia y, por extensión de sus implicaciones, a otras naciones de Europa que enfrentaban a partidarios y opositores del sistema conocido como el Antiguo Régimen. Se inició con la autoproclamación del Tercer Estado como Asamblea Nacional en 1789 y finalizó con el golpe de estado de Napoleón Bonaparte en 1799.",
-    "resource":"history3"
+    "resource":"history4"
   },
   {
     "id":"5",
-    "title":"Imperio romano",
+    "title":"Las cruzadas",
     "description":"El Imperio romano (en latín: Imperium Rōmānum, Senātus Populusque Rōmānus o Rēs pūblica populī rōmānī, entre otros nombres)nota 1 fue el tercer periodo de civilización romana en la Antigüedad clásica, posterior a la República romana y caracterizada por una forma de gobierno autocrática. El nacimiento del Imperio viene precedido por la expansión de su capital, Roma, que extendió su control en torno al mar Mediterráneo. Bajo la etapa imperial los dominios de Roma siguieron aumentando hasta llegar a su máxima extensión durante el reinado de Trajano, momento en que abarcaba desde el océano Atlántico al oeste hasta las orillas del mar Caspio, el mar Rojo y el golfo Pérsico al este, y desde el desierto del Sahara al sur hasta las tierras boscosas a orillas de los ríos Rin y Danubio y la frontera con Caledonia al norte. Su superficie máxima estimada sería de unos 6,5 millones de km².",
-    "resource":"history2"
-  },
-  {
-    "id":"6",
-    "title":"Revolucion Rusa",
-    "description":"El término Revolución rusa (en ruso, Русская революция, Rússkaya revolyútsiya) agrupa todos los sucesos que condujeron al derrocamiento del régimen zarista y a la instauración preparada de otro, leninista, a continuación, entre febrero y octubre de 1917, que llevó a la creación de la República Socialista Federativa Soviética de Rusia. El zar se vio obligado a abdicar y el antiguo régimen fue sustituido por un gobierno provisional durante la primera revolución de febrero de 1917 (marzo en el calendario gregoriano, pues el calendario juliano estaba en uso en Rusia en ese momento). En la segunda revolución, en octubre, el Gobierno Provisional fue eliminado y reemplazado con un gobierno bolchevique (comunista), el Sovnarkom.",
-    "resource":"history4"
+    "resource":"history5"
   }
 ]
