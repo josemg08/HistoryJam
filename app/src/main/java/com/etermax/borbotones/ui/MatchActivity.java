@@ -17,7 +17,7 @@ import com.etermax.borbotones.widget.PlayerStatusWidget;
 
 import java.util.ArrayList;
 
-public class MatchActivity extends Activity {
+public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardHolderOpponent{
 
     CardPlayedHolder playerCard1Played;
     CardPlayedHolder playerCard2Played;
@@ -293,6 +293,7 @@ public class MatchActivity extends Activity {
                 Log.d(MatchActivity.class.getSimpleName(),"user JOINED");
             }
         });
+        manageFight();
         gameMachine.startMatch(player,player2,true);
     }
 
@@ -325,5 +326,19 @@ public class MatchActivity extends Activity {
               }
         }
         return null;
+    }
+
+
+    private void manageFight(){
+        opponentCard1Played.setHolderOpponentListener(this);
+        opponentCard2Played.setHolderOpponentListener(this);
+        opponentCard3Played.setHolderOpponentListener(this);
+        opponentCard4Played.setHolderOpponentListener(this);
+        opponentCard5Played.setHolderOpponentListener(this);
+    }
+
+    @Override
+    public void onCardAttacked(Card card, View view) {
+
     }
 }
