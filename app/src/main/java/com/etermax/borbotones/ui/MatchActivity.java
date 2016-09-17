@@ -56,6 +56,9 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
     Player player;
     Player player2;
     com.etermax.borbotones.data.Deck deckDataSource;
+    private int currentTurn =0;
+    private boolean myTurn = false;
+    private int attacks = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,17 +130,23 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
         gameCardPlayer4 = (GameCard) findViewById(R.id.card_player_4);
         gameCardPlayer5 = (GameCard) findViewById(R.id.card_player_5);
 
+        gameCardOpponent1 = (GameCard) findViewById(R.id.card_opponent_1);
+        gameCardOpponent2 = (GameCard) findViewById(R.id.card_opponent_2);
+        gameCardOpponent3 = (GameCard) findViewById(R.id.card_opponent_3);
+        gameCardOpponent4 = (GameCard) findViewById(R.id.card_opponent_4);
+        gameCardOpponent5 = (GameCard) findViewById(R.id.card_opponent_5);
+
         mineGameCards.add(gameCardPlayer1);
         mineGameCards.add(gameCardPlayer2);
         mineGameCards.add(gameCardPlayer3);
         mineGameCards.add(gameCardPlayer4);
         mineGameCards.add(gameCardPlayer5);
 
-        opponentGameCards.add(gameCardPlayer1);
-        opponentGameCards.add(gameCardPlayer2);
-        opponentGameCards.add(gameCardPlayer3);
-        opponentGameCards.add(gameCardPlayer4);
-        opponentGameCards.add(gameCardPlayer5);
+        opponentGameCards.add(gameCardOpponent1);
+        opponentGameCards.add(gameCardOpponent2);
+        opponentGameCards.add(gameCardOpponent3);
+        opponentGameCards.add(gameCardOpponent4);
+        opponentGameCards.add(gameCardOpponent5);
 
         gameCardOpponent1 = (GameCard) findViewById(R.id.card_opponent_1);
         gameCardOpponent2 = (GameCard) findViewById(R.id.card_opponent_2);
@@ -197,7 +206,8 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
         findViewById(R.id.attack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gameMachine.receiveUserAttack(player.life -100,player.id);
+                gameMachine.receiveUserAttack(gameMachine.playerLife() -100,player.id);
+                playerStatus.setEnergy(gameMachine.playerLife());
             }
         });
 
@@ -205,7 +215,12 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
             @Override
             public void onClick(View v) {
                 Card card = gameMachine.getArenaCards(player2.id).get(0);
-                gameMachine.receiveUserAttack(card.attack,player.id);
+                int value = card.defense -10;
+
+                gameMachine.receiveCardAttack(card.defense-10,card.id,player.id);
+                if (value<=0) {
+                   opponentCard1Played.setCard(null);
+                }
             }
         });
 
@@ -254,6 +269,19 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
             @Override
             public void turnChanged(int playerId) {
                 Log.d(MatchActivity.class.getSimpleName(),"TURN CHANGED");
+//                if(playerId == player2.id){
+//                    myTurn = false;
+//                    if(gameMachine.getArenaCards(player2.id).size() == 0){
+//                        currentCard = gameMachine.getCurrentCards(player2.id).get(0);
+//                        opponentCard1Played.setCard(currentCard);
+//                        gameCardForUserAndCard(currentCard.id,player2.id).hide();
+//                        gameMachine.placeCard(currentCard.id,player2.id);
+//                    }
+//                }else {
+//                    currentTurn ++;
+//                    myTurn = true;
+//
+//                }
             }
 
             @Override
@@ -283,7 +311,9 @@ public class MatchActivity extends Activity implements  CardPlayedHolder.OnCardH
 
     private GameCard gameCardForUserAndCard(int cardId,int playerId){
         for (GameCard gameCard: playerId == player.id ?mineGameCards:opponentGameCards) {
-            if (gameCard.getCard().id == cardId){
+            if( gameCard.getCard() == null ){
+
+            }else if(gameCard.getCard().id == cardId){
                 return gameCard;
             }
         }

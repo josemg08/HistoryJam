@@ -13,7 +13,8 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_gravity="center"
-        android:adjustViewBounds="true" />
+        android:adjustViewBounds="true"
+        android:layout_marginLeft="20dp"/>
 
     <com.etermax.borbotones.widget.CustomFontTextView
         android:id="@+id/history_item_title"
@@ -24,6 +25,7 @@
         android:layout_centerVertical="true"
         android:layout_gravity="center"
         android:layout_toRightOf="@id/history_item_image"
+        android:layout_marginLeft="20dp"
         android:shadowColor="@color/black"
         android:shadowDx="1"
         android:shadowDy="1"

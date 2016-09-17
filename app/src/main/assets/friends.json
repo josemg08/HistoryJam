@@ -1,18 +1,52 @@
 [
 
   {
+    "id":6,
+    "name": "Ada Lovelace",
+    "live": 1500,
+    "level": 5,
+    "experience":450,
+    "resource":"avatar2"
+  },
+  {
+    "id":7,
+    "name": "Maria",
+    "live": 1500,
+    "level": 5,
+    "experience":450,
+    "resource":"avatar2"
+  },
+  {
+    "id":8,
+    "name": "Max Cavazzani",
+    "live": 1500,
+    "level": 5,
+    "experience":450,
+    "resource":"avatar1"
+  },
+  {
+    "id":9,
+    "name": "Simon Selva",
+    "live": 1500,
+    "level": 5,
+    "experience":450,
+    "resource":"avatar1"
+  },
+  {
   "id":1,
   "name":"Alejandro Kim",
   "live": 1200,
   "level": 4,
-  "experience":300
+  "experience":300,
+    "resource":"avatar1"
 },
   {
     "id":2,
     "name":"Carlos Sanchez",
     "live": 1000,
     "level": 3,
-    "experience":300
+    "experience":300,
+    "resource":"avatar1"
   }
   ,
   {
@@ -20,7 +54,8 @@
     "name":"Hernan Bosqued",
     "live": 1200,
     "level": 4,
-    "experience":400
+    "experience":400,
+    "resource":"avatar1"
   }
   ,
   {
@@ -28,7 +63,8 @@
     "name":"Jose Gonzalez",
     "live": 1000,
     "level": 3,
-    "experience":320
+    "experience":320,
+    "resource":"avatar1"
   }
   ,
   {
@@ -36,7 +72,8 @@
     "name": "Juan Felippo",
     "live": 1500,
     "level": 5,
-    "experience":450
+    "experience":450,
+    "resource":"avatar1"
   }
 
 ]
