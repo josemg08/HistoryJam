@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.etermax.borbotones.R;
 import com.etermax.borbotones.model.HistoryEvent;
 
@@ -49,8 +50,7 @@ public class HistoryRowView extends LinearLayout{
 
     public void loadData(HistoryEvent event){
         titleTextView.setText(event.title);
-        historyImageView.setImageDrawable(getContext().getResources().getDrawable(
-                event.getResourceId()));
+        Glide.with(getContext()).load(event.getResourceId()).into(historyImageView);
     }
 
 
