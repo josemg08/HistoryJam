@@ -45,10 +45,10 @@
                 style="@style/MikadoBlack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1000"
+                android:text="999"
                 android:textColor="@color/white"
                 android:layout_marginTop="33px"
-                android:layout_marginLeft="60px"
+                android:layout_marginLeft="65px"
                 android:textSize="24px"/>
         </RelativeLayout>
 
